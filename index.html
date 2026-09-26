@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
 <title>Brief Objet</title>
-<meta name="description" content="Brief Objet — a weekly edit of industrial design, design × AI and watches, curated by industrial designer Antoine Jacquat (antoinejacquat.com).">
+<meta name="description" content="Brief Objet — a weekly design selection by industrial designer Antoine Jacquat (antoinejacquat.com).">
 <meta property="og:title" content="Brief Objet">
-<meta property="og:description" content="A weekly edit of industrial design, design × AI and watches. Curated by Antoine Jacquat — antoinejacquat.com">
+<meta property="og:description" content="A weekly design selection by Antoine Jacquat — antoinejacquat.com">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,7 +81,7 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
     <h1>Brief Objet <span class="by">by Antoine Jacquat</span></h1>
     <span class="meta">No. 01 — 26.09.2026</span>
   </header>
-  <p class="lede">A weekly edit of objects that earn their place. Industrial design, design&nbsp;×&nbsp;AI, and watches built by engineers, not jewellers. No interiors. No diamonds.</p>
+  <p class="lede">My weekly design selection. Only things I genuinely like, and why.</p>
   <p class="sub">Curated by Antoine Jacquat, industrial designer in Lausanne. Work at <a href="https://antoinejacquat.com" target="_blank" rel="noopener">antoinejacquat.com</a></p>
 
   <div class="bar">
@@ -89,7 +89,8 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
       <button class="tab" data-f="all" aria-pressed="true">All</button>
       <button class="tab" data-f="Industrial Design" aria-pressed="false">Industrial Design</button>
       <button class="tab" data-f="Design &amp; AI" aria-pressed="false">Design &amp; AI</button>
-      <button class="tab" data-f="Watches" aria-pressed="false">Watches</button>
+      <button class="tab" data-f="Tools &amp; Process" aria-pressed="false">Tools &amp; Process</button>
+      <button class="tab" data-f="From the Archive" aria-pressed="false">From the Archive</button>
       <button class="tab" data-f="This Weekend" aria-pressed="false">This Weekend</button>
     </div>
     <span class="count" id="count"></span>
@@ -119,13 +120,15 @@ const items=[
  {"id": "scout", "cat": "Industrial Design", "t": "Konstantin Grcic — Scout for Vitra", "u": "https://www.dezeen.com/2026/05/07/vitra-konstantin-grcic-scout-office-table-system/", "src": "Dezeen", "min": 3, "p": "A tubular-steel table system in five models, three of them on castors. Rectangular and trapezoidal tops lock together, straps set the height, and accessory points take screens and more.", "w": "Grcic calls it a beta mindset: furniture that expects to be rearranged."},
  {"id": "nocturne", "cat": "Industrial Design", "t": "Konstantin Grcic — Nocturne for Flos", "u": "https://www.wallpaper.com/design-interiors/lighting/flos-konstantin-grcic-nocturne-lamp-salone-del-mobile-2026", "src": "Wallpaper*", "min": 2, "p": "Extruded aluminium stem, blown borosilicate shade in cone or dome. Directed light, diffuse light and the glow of the glass itself, all at once. Moonlight, bottled. Floor, pendant and wall versions.", "w": "Grcic designs the light first and the lamp second. Method over style."},
  {"id": "vzug", "cat": "Industrial Design", "t": "V-ZUG — the hob that disappears", "u": "https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/", "src": "d5mag · Zurich Design Weeks", "min": 1, "p": "At “Table Rituals”, the induction hob vanishes beneath a continuous mineral surface. The kitchen table gets to be a table again.", "w": "Integration done right: the technology sinks into the material."},
- {"id": "zhdk", "cat": "Industrial Design", "t": "ZHdK — Material Arguments", "u": "https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/", "src": "d5mag · Zurich Design Weeks", "min": 1, "p": "An exhibition tracing the manufacturing decisions that make a material a resource or a waste stream.", "w": ""},
+ {"id": "ressence", "cat": "Industrial Design", "t": "Ressence Type 11 — the first in-house movement", "u": "https://watchesbysjx.com/2026/04/ressence-type-11.html", "src": "SJX Watches", "min": 3, "p": "Calibre RW-01, 60 hours of reserve, wound and set entirely through the caseback. Regulator display on the oil-filled ROCS module, 41 mm titanium case, no crown. CHF 23,000.", "w": "The most industrial-design watch around: no crown, the object itself is the interface."},
+ {"id": "ming", "cat": "Industrial Design", "t": "MING 57.05 Comet — time zones in one click", "u": "https://www.thehourmarkers.com/articles/ming-watch-geneva-watch-days-2026", "src": "The Hour Markers", "min": 2, "p": "Two bezels. Cities without daylight saving stay put; the rest ride an outer bezel. One 15° click shifts only those cities by an hour, and an indicator flips from silver to red. 200 pieces, from CHF 6,950.", "w": "A real usability problem, solved with one mechanical detail."},
+ {"id": "mauron", "cat": "Industrial Design", "t": "Mauron Musy MU05 nO-Ring Origin", "u": "https://www.wallpaper.com/watches-jewellery/geneva-watch-days-2026-highlights", "src": "Wallpaper*", "min": 1, "p": "Titanium, from the Swiss independent. The skeletonised dial reproduces the founder's handwritten development notes and calculations.", "w": "Engineering as ornament: the process becomes the product."},
  {"id": "rhinoai", "cat": "Design & AI", "t": "RhinoAI — McNeel lets AI drive Rhino", "u": "https://github.com/mcneel/rhinoai", "src": "GitHub · McNeel", "min": 3, "p": "An open-source project from McNeel that lets AI assistants (Claude, Copilot, Gemini…) create and edit geometry directly inside Rhino via MCP. Built on the Rhino 9 branch, with docs and recipes.", "w": "Rhino is my daily tool. Describing a tedious modelling task in plain words and watching it happen is a genuine shift."},
  {"id": "dog", "cat": "Design & AI", "t": "HEAD Genève — Probably A Dog", "u": "https://2026.designweeks.ch/en/events/2280-probably-a-dog", "src": "Zurich Design Weeks", "min": 1, "p": "Ekaterina Bliznyuk's graduation project, shown at Zurich Design Weeks, working where AI, craft and artistic practice meet.", "w": ""},
  {"id": "aireport", "cat": "Design & AI", "t": "The AI in Design Report 2026", "u": "https://stateofaidesign.com/", "src": "Designer Fund · Foundation Capital", "min": 4, "p": "900+ designers across 60 countries. They use twice as many AI tools as in 2025, and reliable output is still the weak spot. Skewed towards digital product.", "w": "A useful pulse check, even if industrial design is barely in the room."},
- {"id": "ressence", "cat": "Watches", "t": "Ressence Type 11 — the first in-house movement", "u": "https://watchesbysjx.com/2026/04/ressence-type-11.html", "src": "SJX Watches", "min": 3, "p": "Calibre RW-01, 60 hours of reserve, wound and set entirely through the caseback. Regulator display on the oil-filled ROCS module, 41 mm titanium case, no crown. CHF 23,000.", "w": "The most industrial-design watch around: no crown, the object itself is the interface."},
- {"id": "ming", "cat": "Watches", "t": "MING 57.05 Comet — time zones in one click", "u": "https://www.thehourmarkers.com/articles/ming-watch-geneva-watch-days-2026", "src": "The Hour Markers", "min": 2, "p": "Two bezels. Cities without daylight saving stay put; the rest ride an outer bezel. One 15° click shifts only those cities by an hour, and an indicator flips from silver to red. 200 pieces, from CHF 6,950.", "w": "A real usability problem, solved with one mechanical detail."},
- {"id": "mauron", "cat": "Watches", "t": "Mauron Musy MU05 nO-Ring Origin", "u": "https://www.wallpaper.com/watches-jewellery/geneva-watch-days-2026-highlights", "src": "Wallpaper*", "min": 1, "p": "Titanium, from the Swiss independent. The skeletonised dial reproduces the founder's handwritten development notes and calculations.", "w": "Engineering as ornament: the process becomes the product."},
+ {"id": "zhdk", "cat": "Tools & Process", "t": "ZHdK — Material Arguments", "u": "https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/", "src": "d5mag · Zurich Design Weeks", "min": 1, "p": "An exhibition tracing the manufacturing decisions that make a material a resource or a waste stream.", "w": ""},
+ {"id": "fusion", "cat": "Tools & Process", "t": "Fusion's September update", "u": "https://www.autodesk.com/products/fusion-360/blog/september-2026-major-product-update-whats-new/", "src": "Autodesk Fusion Blog", "min": 2, "p": "More predictable lofts between closed profiles, new point, spot and photometric lights in Render, broader sheet-metal tools and TypeScript for scripts.", "w": "Worth watching from the Rhino side: the lofts are exactly where these tools usually fight you."},
+ {"id": "ulm", "cat": "From the Archive", "t": "Ulmer Hocker — Max Bill & Hans Gugelot, 1954", "u": "https://de.wikipedia.org/wiki/Ulmer_Hocker", "src": "Wikipedia", "min": 2, "p": "Three boards and a round rod, made for the students of the Ulm School of Design. Stool, side table, shelf, or a tray to carry books.", "w": "Seventy years on, still the benchmark for doing a lot with almost nothing."},
  {"id": "neueraeume", "cat": "This Weekend", "t": "Last call — neue räume & Zurich Design Weeks", "u": "https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/", "src": "d5mag", "min": 1, "p": "Both close Sunday 27 September. neue räume at Halle 550 in Oerlikon; the Design Weeks across some fifty venues, including the Museum für Gestaltung and H100's “Out of Glarus”.", "w": ""}
 ];
 const EDIT=location.hash==="#atelier";
