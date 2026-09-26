@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
 <title>Brief Objet</title>
-<meta name="description" content="Brief Objet, la sélection design d'Antoine Jacquat : design industriel, design et IA, montres qui osent.">
+<meta name="description" content="Brief Objet — a weekly edit of industrial design, design × AI and watches, curated by industrial designer Antoine Jacquat (antoinejacquat.com).">
 <meta property="og:title" content="Brief Objet">
-<meta property="og:description" content="La sélection design d'Antoine Jacquat : design industriel, design et IA, montres qui osent.">
+<meta property="og:description" content="A weekly edit of industrial design, design × AI and watches. Curated by Antoine Jacquat — antoinejacquat.com">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,8 @@ header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
 header h1{font:inherit;margin:0;text-transform:uppercase;letter-spacing:var(--tracking)}
 header .meta{text-transform:uppercase;letter-spacing:var(--tracking);font-variant-numeric:tabular-nums}
 header .by{color:#6b6b6b}
+.sub{margin:-16px 0 32px;font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
+.sub a{color:var(--black)}
 .lede{margin:0;padding-block:28px 32px;max-width:36ch;font-size:1.6rem;line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
 .bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;border-top:var(--line);border-bottom:var(--line);padding-block:8px}
 .tabs{display:flex;flex-wrap:wrap;gap:0}
@@ -67,6 +69,8 @@ textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;background:var
 .toast{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking)}
 footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
 @media (max-width:560px){article{grid-template-columns:1fr}.acts{grid-row:auto;grid-column:1;justify-self:start}header .by{color:#6b6b6b}
+.sub{margin:-16px 0 32px;font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
+.sub a{color:var(--black)}
 .lede{font-size:1.3rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -74,18 +78,19 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
 <body>
 <div class="wrap">
   <header>
-    <h1>Brief Objet <span class="by">par Antoine Jacquat</span></h1>
-    <span class="meta">N° 01 — 26.09.2026</span>
+    <h1>Brief Objet <span class="by">by Antoine Jacquat</span></h1>
+    <span class="meta">No. 01 — 26.09.2026</span>
   </header>
-  <p class="lede">Ma sélection de la semaine&nbsp;: design industriel, design et IA, montres qui osent. Pas de déco, pas de diamants.</p>
+  <p class="lede">A weekly edit of objects that earn their place. Industrial design, design&nbsp;×&nbsp;AI, and watches built by engineers, not jewellers. No interiors. No diamonds.</p>
+  <p class="sub">Curated by Antoine Jacquat, industrial designer in Lausanne. Work at <a href="https://antoinejacquat.com" target="_blank" rel="noopener">antoinejacquat.com</a></p>
 
   <div class="bar">
-    <div class="tabs" role="group" aria-label="Filtrer">
-      <button class="tab" data-f="all" aria-pressed="true">Tout</button>
-      <button class="tab" data-f="Design industriel" aria-pressed="false">Design industriel</button>
-      <button class="tab" data-f="Design &amp; IA" aria-pressed="false">Design &amp; IA</button>
-      <button class="tab" data-f="Montres" aria-pressed="false">Montres</button>
-      <button class="tab" data-f="Ce week-end" aria-pressed="false">Ce week-end</button>
+    <div class="tabs" role="group" aria-label="Filter">
+      <button class="tab" data-f="all" aria-pressed="true">All</button>
+      <button class="tab" data-f="Industrial Design" aria-pressed="false">Industrial Design</button>
+      <button class="tab" data-f="Design &amp; AI" aria-pressed="false">Design &amp; AI</button>
+      <button class="tab" data-f="Watches" aria-pressed="false">Watches</button>
+      <button class="tab" data-f="This Weekend" aria-pressed="false">This Weekend</button>
     </div>
     <span class="count" id="count"></span>
   </div>
@@ -95,57 +100,33 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
 
 
   <aside id="atelier" hidden>
-    <h2>Ligne éditoriale</h2>
-    <p>Trie les sujets, note ce que tu veux voir plus ou moins, puis copie le récap pour préparer l'édition suivante.</p>
-    <label for="more">Plus de…</label>
-    <textarea id="more" placeholder="Ex. objets du quotidien bien dessinés, studios suisses, CMF, sorties Rhino…"></textarea>
-    <label for="less">Moins de…</label>
-    <textarea id="less" placeholder="Ex. déco d'intérieur, tendances génériques, contenu sponsorisé…"></textarea>
-    <button class="primary" id="copy">Copier mon récap</button>
-    <textarea id="recap" readonly hidden aria-label="Récap à copier"></textarea>
-    <span class="toast" id="toast" hidden>Récap copié.</span>
+    <h2>Editorial line</h2>
+    <p>Sort the stories, note what you want more or less of, then copy the recap for the next issue.</p>
+    <label for="more">More of…</label>
+    <textarea id="more" placeholder="e.g. well-made everyday objects, Swiss studios, CMF, Rhino releases…"></textarea>
+    <label for="less">Less of…</label>
+    <textarea id="less" placeholder="e.g. interiors, generic trend pieces, sponsored content…"></textarea>
+    <button class="primary" id="copy">Copy recap</button>
+    <textarea id="recap" readonly hidden aria-label="Recap to copy"></textarea>
+    <span class="toast" id="toast" hidden>Recap copied.</span>
   </aside>
-  <footer>Édition 01 — sélection <a href="https://antoinejacquat.com">Antoine Jacquat</a>, Lausanne</footer>
+  <footer>Issue 01 — curated by <a href="https://antoinejacquat.com">Antoine Jacquat</a>, Lausanne</footer>
 </div>
 
 <script>
 const items=[
- {id:"mutthorn",cat:"Design industriel",t:"Chaise Mutthorn, Panter&Tourron pour Horgenglarus",u:"https://horgenglarus.ch/en/horgenglarus/latest",src:"Horgenglarus",min:1,
-  p:"Dessinée à l'origine pour la cabane du Mutthorn, la chaise entre officiellement dans la collection Horgenglarus. Présentée à neue räume, Halle 550 à Oerlikon, du 24 au 27 septembre.",
-  w:"Une pièce née d'un usage réel en montagne, fabriquée par le plus ancien fabricant de chaises de Suisse."},
- {id:"scout",cat:"Design industriel",t:"Konstantin Grcic, Scout pour Vitra",u:"https://www.dezeen.com/2026/05/07/vitra-konstantin-grcic-scout-office-table-system/",src:"Dezeen",min:3,
-  p:"Système de tables en tube d'acier, cinq modèles dont trois sur roulettes, plateaux rectangulaires ou trapézoïdaux qui s'assemblent. Réglage en hauteur par sangles et points de fixation pour écrans et accessoires.",
-  w:"Grcic assume un objet « en version bêta » : pensé pour être reconfiguré plutôt que figé."},
- {id:"nocturne",cat:"Design industriel",t:"Konstantin Grcic, lampe Nocturne pour Flos",u:"https://www.wallpaper.com/design-interiors/lighting/flos-konstantin-grcic-nocturne-lamp-salone-del-mobile-2026",src:"Wallpaper*",min:2,
-  p:"Tige en aluminium extrudé et abat-jour en borosilicate soufflé, en cône ou en dôme. L'idée est de mêler lumière dirigée, lumière diffuse et lueur du verre, comme un clair de lune. Déclinée en lampadaire, suspension et applique.",
-  w:"Grcic part de la source lumineuse puis construit l'objet autour. Une méthode plus qu'un style."},
- {id:"vzug",cat:"Design industriel",t:"V-ZUG, une plaque à induction invisible",u:"https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/",src:"d5mag · Zurich Design Weeks",min:1,
-  p:"Installation « Table Rituals » : la plaque de cuisson disparaît sous une surface minérale continue, et la table redevient une table.",
-  w:"Un vrai sujet d'intégration produit : faire disparaître la technique dans le matériau."},
- {id:"zhdk",cat:"Design industriel",t:"ZHdK, « Material Arguments »",u:"https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/",src:"d5mag · Zurich Design Weeks",min:1,
-  p:"L'exposition remonte aux décisions de fabrication qui font qu'un matériau devient ressource ou déchet.",
-  w:""},
- {id:"rhinoai",cat:"Design & IA",t:"RhinoAI : McNeel branche les assistants IA sur Rhino",u:"https://github.com/mcneel/rhinoai",src:"GitHub · McNeel",min:3,
-  p:"Projet open source de McNeel qui permet à un assistant IA (Claude, Copilot, Gemini…) de créer et modifier une géométrie directement dans Rhino, via le protocole MCP. Développé sur la branche Rhino 9, avec documentation et exemples.",
-  w:"Rhino est mon outil de tous les jours : de quoi automatiser les tâches répétitives de modélisation en langage naturel."},
- {id:"dog",cat:"Design & IA",t:"HEAD Genève, « Probably A Dog »",u:"https://2026.designweeks.ch/en/events/2280-probably-a-dog",src:"Zurich Design Weeks",min:1,
-  p:"Projet de diplôme d'Ekaterina Bliznyuk, exposé aux Zurich Design Weeks, qui explore la rencontre entre IA, savoir-faire et pratique artistique.",
-  w:""},
- {id:"aireport",cat:"Design & IA",t:"AI in Design Report 2026",u:"https://stateofaidesign.com/",src:"Designer Fund · Foundation Capital",min:4,
-  p:"Enquête auprès de plus de 900 designers dans 60 pays. Ils utilisent deux fois plus d'outils IA qu'en 2025, et la fiabilité des résultats reste le principal point faible. Le rapport est surtout orienté produit numérique.",
-  w:"Utile pour situer où en est la profession, même si le design industriel y est peu représenté."},
- {id:"ressence",cat:"Montres",t:"Ressence Type 11, premier mouvement maison",u:"https://watchesbysjx.com/2026/04/ressence-type-11.html",src:"SJX Watches",min:3,
-  p:"Calibre RW-01 développé en interne, 60 h de réserve de marche, remontage et réglage uniquement par le fond. Affichage régulateur sur module à bain d'huile, boîtier titane 41 mm sans couronne. CHF 23'000.",
-  w:"La montre la plus « design industriel » du marché : aucune couronne, tout passe par l'objet lui-même."},
- {id:"ming",cat:"Montres",t:"MING 57.05 Comet, un fuseau horaire en un clic",u:"https://www.thehourmarkers.com/articles/ming-watch-geneva-watch-days-2026",src:"The Hour Markers",min:2,
-  p:"Deux lunettes : les villes sans heure d'été restent fixes, les autres sont sur une lunette mobile. Un seul cran de 15° décale uniquement ces villes d'une heure, avec un indicateur qui passe du gris au rouge. 200 pièces, dès CHF 6'950.",
-  w:"Un vrai problème d'usage réglé par un détail mécanique."},
- {id:"mauron",cat:"Montres",t:"Mauron Musy MU05 nO-Ring Origin",u:"https://www.wallpaper.com/watches-jewellery/geneva-watch-days-2026-highlights",src:"Wallpaper*",min:1,
-  p:"Montre en titane de la marque jurassienne, avec un cadran squeletté qui reproduit les notes et calculs manuscrits du fondateur pendant le développement.",
-  w:"L'ingénierie montrée comme décor : le process devient le produit."},
- {id:"neueraeume",cat:"Ce week-end",t:"neue räume 26 et Zurich Design Weeks, derniers jours",u:"https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/",src:"d5mag",min:1,
-  p:"Les deux se terminent dimanche 27 septembre. neue räume est à la Halle 550 à Oerlikon, les Design Weeks dans une cinquantaine de lieux, dont le Museum für Gestaltung et H100 avec « Out of Glarus ».",
-  w:""}
+ {"id": "mutthorn", "cat": "Industrial Design", "t": "Mutthorn Chair — Panter&Tourron for Horgenglarus", "u": "https://horgenglarus.ch/en/horgenglarus/latest", "src": "Horgenglarus", "min": 1, "p": "Born in the Mutthorn mountain hut, now joining the Horgenglarus collection. Launched at neue räume, Halle 550, Zurich-Oerlikon, 24–27 September.", "w": "A chair shaped by real use at altitude, built by Switzerland's oldest chair maker."},
+ {"id": "scout", "cat": "Industrial Design", "t": "Konstantin Grcic — Scout for Vitra", "u": "https://www.dezeen.com/2026/05/07/vitra-konstantin-grcic-scout-office-table-system/", "src": "Dezeen", "min": 3, "p": "A tubular-steel table system in five models, three of them on castors. Rectangular and trapezoidal tops lock together, straps set the height, and accessory points take screens and more.", "w": "Grcic calls it a beta mindset: furniture that expects to be rearranged."},
+ {"id": "nocturne", "cat": "Industrial Design", "t": "Konstantin Grcic — Nocturne for Flos", "u": "https://www.wallpaper.com/design-interiors/lighting/flos-konstantin-grcic-nocturne-lamp-salone-del-mobile-2026", "src": "Wallpaper*", "min": 2, "p": "Extruded aluminium stem, blown borosilicate shade in cone or dome. Directed light, diffuse light and the glow of the glass itself, all at once. Moonlight, bottled. Floor, pendant and wall versions.", "w": "Grcic designs the light first and the lamp second. Method over style."},
+ {"id": "vzug", "cat": "Industrial Design", "t": "V-ZUG — the hob that disappears", "u": "https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/", "src": "d5mag · Zurich Design Weeks", "min": 1, "p": "At “Table Rituals”, the induction hob vanishes beneath a continuous mineral surface. The kitchen table gets to be a table again.", "w": "Integration done right: the technology sinks into the material."},
+ {"id": "zhdk", "cat": "Industrial Design", "t": "ZHdK — Material Arguments", "u": "https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/", "src": "d5mag · Zurich Design Weeks", "min": 1, "p": "An exhibition tracing the manufacturing decisions that make a material a resource or a waste stream.", "w": ""},
+ {"id": "rhinoai", "cat": "Design & AI", "t": "RhinoAI — McNeel lets AI drive Rhino", "u": "https://github.com/mcneel/rhinoai", "src": "GitHub · McNeel", "min": 3, "p": "An open-source project from McNeel that lets AI assistants (Claude, Copilot, Gemini…) create and edit geometry directly inside Rhino via MCP. Built on the Rhino 9 branch, with docs and recipes.", "w": "Rhino is my daily tool. Describing a tedious modelling task in plain words and watching it happen is a genuine shift."},
+ {"id": "dog", "cat": "Design & AI", "t": "HEAD Genève — Probably A Dog", "u": "https://2026.designweeks.ch/en/events/2280-probably-a-dog", "src": "Zurich Design Weeks", "min": 1, "p": "Ekaterina Bliznyuk's graduation project, shown at Zurich Design Weeks, working where AI, craft and artistic practice meet.", "w": ""},
+ {"id": "aireport", "cat": "Design & AI", "t": "The AI in Design Report 2026", "u": "https://stateofaidesign.com/", "src": "Designer Fund · Foundation Capital", "min": 4, "p": "900+ designers across 60 countries. They use twice as many AI tools as in 2025, and reliable output is still the weak spot. Skewed towards digital product.", "w": "A useful pulse check, even if industrial design is barely in the room."},
+ {"id": "ressence", "cat": "Watches", "t": "Ressence Type 11 — the first in-house movement", "u": "https://watchesbysjx.com/2026/04/ressence-type-11.html", "src": "SJX Watches", "min": 3, "p": "Calibre RW-01, 60 hours of reserve, wound and set entirely through the caseback. Regulator display on the oil-filled ROCS module, 41 mm titanium case, no crown. CHF 23,000.", "w": "The most industrial-design watch around: no crown, the object itself is the interface."},
+ {"id": "ming", "cat": "Watches", "t": "MING 57.05 Comet — time zones in one click", "u": "https://www.thehourmarkers.com/articles/ming-watch-geneva-watch-days-2026", "src": "The Hour Markers", "min": 2, "p": "Two bezels. Cities without daylight saving stay put; the rest ride an outer bezel. One 15° click shifts only those cities by an hour, and an indicator flips from silver to red. 200 pieces, from CHF 6,950.", "w": "A real usability problem, solved with one mechanical detail."},
+ {"id": "mauron", "cat": "Watches", "t": "Mauron Musy MU05 nO-Ring Origin", "u": "https://www.wallpaper.com/watches-jewellery/geneva-watch-days-2026-highlights", "src": "Wallpaper*", "min": 1, "p": "Titanium, from the Swiss independent. The skeletonised dial reproduces the founder's handwritten development notes and calculations.", "w": "Engineering as ornament: the process becomes the product."},
+ {"id": "neueraeume", "cat": "This Weekend", "t": "Last call — neue räume & Zurich Design Weeks", "u": "https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/", "src": "d5mag", "min": 1, "p": "Both close Sunday 27 September. neue räume at Halle 550 in Oerlikon; the Design Weeks across some fifty venues, including the Museum für Gestaltung and H100's “Out of Glarus”.", "w": ""}
 ];
 const EDIT=location.hash==="#atelier";
 const KEY="brief-objet-atelier";
@@ -159,11 +140,11 @@ function render(){
     const v=st.votes[i.id];
     return `<article class="${EDIT&&v==="k"?"kept":EDIT&&v==="d"?"dropped":""}">
       <h3><a href="${i.u}" target="_blank" rel="noopener">${esc(i.t)}</a><span class="read">${i.min} min</span></h3>
-      ${EDIT?`<div class="acts"><button class="act" data-id="${i.id}" data-v="k" aria-pressed="${v==="k"}">Garder</button><button class="act" data-id="${i.id}" data-v="d" aria-pressed="${v==="d"}">Écarter</button></div>`:""}
-      <p>${esc(i.p)}</p>${i.w?`<div class="why"><b>Pourquoi</b>${esc(i.w)}</div>`:""}
+      ${EDIT?`<div class="acts"><button class="act" data-id="${i.id}" data-v="k" aria-pressed="${v==="k"}">Keep</button><button class="act" data-id="${i.id}" data-v="d" aria-pressed="${v==="d"}">Drop</button></div>`:""}
+      <p>${esc(i.p)}</p>${i.w?`<div class="why"><b>Why</b>${esc(i.w)}</div>`:""}
       <div class="src">${esc(i.src)}</div></article>`}).join("")}</section>`).join("");
   const k=Object.values(st.votes).filter(v=>v==="k").length,d=Object.values(st.votes).filter(v=>v==="d").length;
-  document.getElementById("count").textContent=EDIT?`${items.length} sujets · ${k} gardés · ${d} écartés`:`${items.length} sujets`;
+  document.getElementById("count").textContent=EDIT?`${items.length} stories · ${k} kept · ${d} dropped`:`${items.length} stories`;
   document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===filter));
 }
 document.addEventListener("click",e=>{
@@ -175,12 +156,12 @@ if(EDIT){
   document.getElementById("atelier").hidden=false;
   ["more","less"].forEach(id=>{const el=document.getElementById(id);el.value=st[id]||"";el.addEventListener("input",()=>{st[id]=el.value;save()})});
   document.getElementById("copy").addEventListener("click",()=>{
-    const pick=v=>items.filter(i=>st.votes[i.id]===v).map(i=>"- "+i.t).join("\n")||"- (aucun)";
+    const pick=v=>items.filter(i=>st.votes[i.id]===v).map(i=>"- "+i.t).join("\n")||"- (none)";
     const n=(document.querySelector("header .meta")||{}).textContent||"";
-    const txt=`Récap Brief Objet ${n}\n\nGardés :\n${pick("k")}\n\nÉcartés :\n${pick("d")}\n\nPlus de : ${st.more||"-"}\nMoins de : ${st.less||"-"}`;
+    const txt=`Brief Objet recap ${n}\n\nKept:\n${pick("k")}\n\nDropped:\n${pick("d")}\n\nMore of: ${st.more||"-"}\nLess of: ${st.less||"-"}`;
     const toast=document.getElementById("toast");
     const done=()=>{toast.hidden=false;setTimeout(()=>toast.hidden=true,3000)};
-    const fallback=()=>{const ta=document.getElementById("recap");ta.hidden=false;ta.value=txt;ta.select();toast.textContent="Copie auto impossible : sélectionne le texte ci-dessus.";done()};
+    const fallback=()=>{const ta=document.getElementById("recap");ta.hidden=false;ta.value=txt;ta.select();toast.textContent="Copy blocked: select the text above.";done()};
     if(navigator.clipboard)navigator.clipboard.writeText(txt).then(done,fallback);else fallback();
   });
 }
