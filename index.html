@@ -3,9 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
 <meta name="theme-color" content="#ffffff">
 <title>Brief Objet</title>
+<meta name="description" content="Brief Objet, la sélection design d'Antoine Jacquat : design industriel, design et IA, montres qui osent.">
+<meta property="og:title" content="Brief Objet">
+<meta property="og:description" content="La sélection design d'Antoine Jacquat : design industriel, design et IA, montres qui osent.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap">
@@ -29,6 +32,7 @@ a{color:inherit}
 header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:var(--line);padding-block:14px 10px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--white);z-index:2}
 header h1{font:inherit;margin:0;text-transform:uppercase;letter-spacing:var(--tracking)}
 header .meta{text-transform:uppercase;letter-spacing:var(--tracking);font-variant-numeric:tabular-nums}
+header .by{color:#6b6b6b}
 .lede{margin:0;padding-block:28px 32px;max-width:36ch;font-size:1.6rem;line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
 .bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;border-top:var(--line);border-bottom:var(--line);padding-block:8px}
 .tabs{display:flex;flex-wrap:wrap;gap:0}
@@ -47,7 +51,7 @@ article p{grid-column:1/-1;margin:0;max-width:62ch;font-size:.95rem;line-height:
 .why{grid-column:1/-1;font-size:.95rem;line-height:1.4;max-width:62ch;background:var(--bg);padding:var(--pad) .5rem}
 .why b{font-weight:400;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);margin-right:8px}
 .src{grid-column:1/-1;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
-.acts{display:flex;gap:0;grid-row:1;grid-column:2;align-self:start;border:var(--line)}
+.acts-unused{display:flex;gap:0;grid-row:1;grid-column:2;align-self:start;border:var(--line)}
 .act+.act{border-left:var(--line)}
 article.dropped{color:var(--grey)}
 article.dropped .why{background:transparent}
@@ -61,17 +65,18 @@ textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;background:var
 .primary{align-self:flex-start;border:var(--line);padding:.5rem .8rem}
 .toast{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking)}
 footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
-@media (max-width:560px){article{grid-template-columns:1fr}.acts{grid-row:auto;grid-column:1;justify-self:start}.lede{font-size:1.3rem}}
+@media (max-width:560px){article{grid-template-columns:1fr}.acts-unused{grid-row:auto;grid-column:1;justify-self:start}header .by{color:#6b6b6b}
+.lede{font-size:1.3rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>Brief Objet</h1>
+    <h1>Brief Objet <span class="by">par Antoine Jacquat</span></h1>
     <span class="meta">N° 01 — 26.09.2026</span>
   </header>
-  <p class="lede">Design industriel, design et IA, montres qui osent. Pas de déco, pas de diamants.</p>
+  <p class="lede">Ma sélection de la semaine&nbsp;: design industriel, design et IA, montres qui osent. Pas de déco, pas de diamants.</p>
 
   <div class="bar">
     <div class="tabs" role="group" aria-label="Filtrer">
@@ -86,19 +91,8 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
 
   <main id="feed"></main>
 
-  <aside>
-    <h2>Ta ligne éditoriale</h2>
-    <p>Dis ce que tu veux voir plus ou moins. Ensuite, copie ton récap et colle-le dans Claude pour affiner la prochaine édition.</p>
-    <label for="more">Plus de…</label>
-    <textarea id="more" placeholder="Ex. objets du quotidien bien dessinés, studios suisses, CMF, sorties Rhino…"></textarea>
-    <label for="less">Moins de…</label>
-    <textarea id="less" placeholder="Ex. déco d'intérieur, tendances génériques, contenu sponsorisé…"></textarea>
-    <button class="primary" id="copy">Copier mon récap</button>
-    <textarea id="recap" readonly hidden aria-label="Récap à copier"></textarea>
-    <span class="toast" id="toast" hidden>Récap copié. Colle-le dans la conversation.</span>
-  </aside>
 
-  <footer>Édition 01 — sujets sélectionnés par Claude à partir de sources web, à trier par toi.</footer>
+  <footer>Édition 01 — sélection <a href="https://antoinejacquat.com">Antoine Jacquat</a>, Lausanne</footer>
 </div>
 
 <script>
@@ -120,7 +114,7 @@ const items=[
   w:""},
  {id:"rhinoai",cat:"Design & IA",t:"RhinoAI : McNeel branche les assistants IA sur Rhino",u:"https://github.com/mcneel/rhinoai",src:"GitHub · McNeel",min:3,
   p:"Projet open source de McNeel qui permet à un assistant IA (Claude, Copilot, Gemini…) de créer et modifier une géométrie directement dans Rhino, via le protocole MCP. Développé sur la branche Rhino 9, avec documentation et exemples.",
-  w:"C'est ton outil principal : de quoi automatiser les tâches répétitives de modélisation en langage naturel."},
+  w:"Rhino est mon outil de tous les jours : de quoi automatiser les tâches répétitives de modélisation en langage naturel."},
  {id:"dog",cat:"Design & IA",t:"HEAD Genève, « Probably A Dog »",u:"https://2026.designweeks.ch/en/events/2280-probably-a-dog",src:"Zurich Design Weeks",min:1,
   p:"Projet de diplôme d'Ekaterina Bliznyuk, exposé aux Zurich Design Weeks, qui explore la rencontre entre IA, savoir-faire et pratique artistique.",
   w:""},
@@ -140,40 +134,18 @@ const items=[
   p:"Les deux se terminent dimanche 27 septembre. neue räume est à la Halle 550 à Oerlikon, les Design Weeks dans une cinquantaine de lieux, dont le Museum für Gestaltung et H100 avec « Out of Glarus ».",
   w:""}
 ];
-const KEY="brief-objet-v0";
-let state={votes:{},filter:"all",more:"",less:""};
-try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)state={...state,...s}}catch(e){}
-if(state.filter!=="all"&&!items.some(i=>i.cat===state.filter))state.filter="all";
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}};
+let filter="all";
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function render(){
-  const feed=document.getElementById("feed");
-  const cats=[...new Set(items.map(i=>i.cat))].filter(c=>state.filter==="all"||c===state.filter);
-  feed.innerHTML=cats.map(c=>`<section class="cat"><h2>${esc(c)}</h2>${items.filter(i=>i.cat===c).map(i=>{
-    const v=state.votes[i.id];
-    return `<article class="${v==="k"?"kept":v==="d"?"dropped":""}">
+  const cats=[...new Set(items.map(i=>i.cat))].filter(c=>filter==="all"||c===filter);
+  document.getElementById("feed").innerHTML=cats.map(c=>`<section class="cat"><h2>${esc(c)}</h2>${items.filter(i=>i.cat===c).map(i=>`<article>
       <h3><a href="${i.u}" target="_blank" rel="noopener">${esc(i.t)}</a><span class="read">${i.min} min</span></h3>
-      <div class="acts"><button class="act k" data-id="${i.id}" data-v="k" aria-pressed="${v==="k"}">Garder</button><button class="act d" data-id="${i.id}" data-v="d" aria-pressed="${v==="d"}">Pas pour moi</button></div>
-      <p>${esc(i.p)}</p>${i.w?`<div class="why"><b>Pourquoi toi</b>${esc(i.w)}</div>`:""}
-      <div class="src">${esc(i.src)}</div></article>`}).join("")}</section>`).join("");
-  const k=Object.values(state.votes).filter(v=>v==="k").length,d=Object.values(state.votes).filter(v=>v==="d").length;
-  document.getElementById("count").textContent=`${items.length} sujets · ${k} gardés · ${d} écartés`;
-  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===state.filter));
+      <p>${esc(i.p)}</p>${i.w?`<div class="why"><b>Pourquoi</b>${esc(i.w)}</div>`:""}
+      <div class="src">${esc(i.src)}</div></article>`).join("")}</section>`).join("");
+  document.getElementById("count").textContent=`${items.length} sujets`;
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===filter));
 }
-document.addEventListener("click",e=>{
-  const a=e.target.closest(".act");
-  if(a){const {id,v}=a.dataset;state.votes[id]=state.votes[id]===v?undefined:v;save();render();return}
-  const t=e.target.closest(".tab");if(t){state.filter=t.dataset.f;save();render()}
-});
-["more","less"].forEach(id=>{const el=document.getElementById(id);el.value=state[id]||"";el.addEventListener("input",()=>{state[id]=el.value;save()})});
-document.getElementById("copy").addEventListener("click",()=>{
-  const pick=v=>items.filter(i=>state.votes[i.id]===v).map(i=>"- "+i.t).join("\n")||"- (aucun)";
-  const txt=`Récap Brief Objet n°01\n\nGardés :\n${pick("k")}\n\nÉcartés :\n${pick("d")}\n\nPlus de : ${state.more||"-"}\nMoins de : ${state.less||"-"}\n\nAjuste la prochaine édition en fonction.`;
-  const toast=document.getElementById("toast");
-  const done=()=>{toast.hidden=false;setTimeout(()=>toast.hidden=true,3000)};
-  const fallback=()=>{const ta=document.getElementById("recap");ta.hidden=false;ta.value=txt;ta.select();toast.textContent="Copie auto refusée : le récap est sélectionné dans le champ, copie-le à la main.";done()};
-  if(navigator.clipboard)navigator.clipboard.writeText(txt).then(done,fallback);else fallback();
-});
+document.addEventListener("click",e=>{const t=e.target.closest(".tab");if(t){filter=t.dataset.f;render()}});
 render();
 </script>
 
