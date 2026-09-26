@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<title>Brief Objet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap">
+<style>
+@font-face{font-family:"SuisseIntl";src:url("SuisseBPIntl-Regular.woff") format("woff"),url("/SuisseBPIntl-Regular.woff?v=2") format("woff");font-weight:400;font-style:normal;font-display:swap}
+</style>
+<style>
+/* Style repris d'antoinejacquat.com : noir/blanc, traits 1px, capitales espacées, survol gris */
+:root{
+  --black:#000; --white:#fff; --grey:#c4c4c4; --bg:#f4f4f4; --line:1px solid #000;
+  --pad:.275rem; --tracking:.08em;
+  --font:"Suisse Intl","SuisseIntl","Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{font-size:15.84px}
+body{background:var(--white);color:var(--black);font:400 1.1rem/1.35 var(--font);padding-inline:16px;padding-block:0 64px}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column}
+.up{text-transform:uppercase;letter-spacing:var(--tracking)}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:var(--line);padding-block:14px 10px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--white);z-index:2}
+header h1{font:inherit;margin:0;text-transform:uppercase;letter-spacing:var(--tracking)}
+header .meta{text-transform:uppercase;letter-spacing:var(--tracking);font-variant-numeric:tabular-nums}
+.lede{margin:0;padding-block:28px 32px;max-width:36ch;font-size:1.6rem;line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;border-top:var(--line);border-bottom:var(--line);padding-block:8px}
+.tabs{display:flex;flex-wrap:wrap;gap:0}
+.tab,.act,.primary{font:inherit;font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);background:transparent;color:var(--black);border:0;padding:.35rem .6rem;cursor:pointer;transition:background .25s ease,color .25s ease}
+.tab:hover,.act:hover,.primary:hover{background:var(--grey);color:var(--white)}
+.tab[aria-pressed="true"],.act[aria-pressed="true"]{background:var(--black);color:var(--white)}
+.count{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);font-variant-numeric:tabular-nums;color:#6b6b6b}
+section.cat{display:flex;flex-direction:column}
+.cat h2{font:inherit;font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);margin:0;padding-block:36px 8px;border-bottom:var(--line)}
+article{display:grid;grid-template-columns:1fr auto;gap:8px 16px;padding-block:14px 16px;border-bottom:var(--line);transition:color .5s ease}
+article h3{font:inherit;margin:0;text-wrap:balance}
+article h3 a{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .5s ease}
+article h3 a:hover{background-size:100% 1px}
+.read{font-size:.82rem;letter-spacing:.04em;color:#6b6b6b;margin-left:8px;white-space:nowrap}
+article p{grid-column:1/-1;margin:0;max-width:62ch;font-size:.95rem;line-height:1.4}
+.why{grid-column:1/-1;font-size:.95rem;line-height:1.4;max-width:62ch;background:var(--bg);padding:var(--pad) .5rem}
+.why b{font-weight:400;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);margin-right:8px}
+.src{grid-column:1/-1;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
+.acts{display:flex;gap:0;grid-row:1;grid-column:2;align-self:start;border:var(--line)}
+.act+.act{border-left:var(--line)}
+article.dropped{color:var(--grey)}
+article.dropped .why{background:transparent}
+article.dropped .src,article.dropped .read{color:var(--grey)}
+.tab:focus-visible,.act:focus-visible,.primary:focus-visible,a:focus-visible,textarea:focus-visible{outline:1px solid var(--black);outline-offset:2px}
+aside{margin-top:48px;background:var(--bg);border-top:var(--line);border-bottom:var(--line);padding:20px 16px;display:flex;flex-direction:column;gap:12px}
+aside h2{font:inherit;margin:0;text-transform:uppercase;letter-spacing:var(--tracking)}
+aside p{margin:0;font-size:.95rem;max-width:62ch}
+label{font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking)}
+textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;background:var(--white);color:var(--black);border:var(--line);border-radius:0;padding:.5rem;resize:vertical}
+.primary{align-self:flex-start;border:var(--line);padding:.5rem .8rem}
+.toast{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking)}
+footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
+.cursor{position:fixed;left:0;top:0;pointer-events:none;color:var(--white);mix-blend-mode:difference;font-size:1.6rem;line-height:1;z-index:10;transform:translate(-50%,-50%);display:none}
+@media (hover:hover) and (pointer:fine){body,a,button{cursor:none}.cursor{display:block}textarea{cursor:text}}
+@media (max-width:560px){article{grid-template-columns:1fr}.acts{grid-row:auto;grid-column:1;justify-self:start}.lede{font-size:1.3rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Brief Objet</h1>
+    <span class="meta">N° 00 — 21.09.2026</span>
+  </header>
+  <p class="lede">La veille design de la semaine&nbsp;: objets, mobilier, horlogerie, outils. Garde ce qui te parle, écarte le reste.</p>
+
+  <div class="bar">
+    <div class="tabs" role="group" aria-label="Filtrer">
+      <button class="tab" data-f="all" aria-pressed="true">Tout</button>
+      <button class="tab" data-f="Objets & tech" aria-pressed="false">Objets & tech</button>
+      <button class="tab" data-f="Mobilier" aria-pressed="false">Mobilier</button>
+      <button class="tab" data-f="Horlogerie" aria-pressed="false">Horlogerie</button>
+      <button class="tab" data-f="Outils & agenda" aria-pressed="false">Outils & agenda</button>
+    </div>
+    <span class="count" id="count"></span>
+  </div>
+
+  <main id="feed"></main>
+
+  <aside>
+    <h2>Ta ligne éditoriale</h2>
+    <p>Dis ce que tu veux voir plus ou moins. Ensuite, copie ton récap et colle-le dans Claude pour affiner la prochaine édition.</p>
+    <label for="more">Plus de…</label>
+    <textarea id="more" placeholder="Ex. objets du quotidien bien dessinés, studios suisses, CMF, sorties Rhino…"></textarea>
+    <label for="less">Moins de…</label>
+    <textarea id="less" placeholder="Ex. déco d'intérieur, tendances génériques, contenu sponsorisé…"></textarea>
+    <button class="primary" id="copy">Copier mon récap</button>
+    <textarea id="recap" readonly hidden aria-label="Récap à copier"></textarea>
+    <span class="toast" id="toast" hidden>Récap copié. Colle-le dans la conversation.</span>
+  </aside>
+
+  <footer>Édition 00 — sujets sélectionnés par Claude à partir de sources web, à trier par toi.</footer>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true">→</div>
+<script>
+const items=[
+ {id:"iphone-duo",cat:"Objets & tech",t:"Apple dévoile l'iPhone Duo, son premier pliable",u:"https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo/",src:"Apple Newsroom · MacRumors",min:3,
+  p:"Format « passeport », plus large que haut une fois ouvert : 5,4\" fermé, 7,6\" déplié. Apple le présente comme l'iPhone le plus fin jamais fait en position ouverte. Sortie prévue le 23 octobre, à partir de 1999 $.",
+  w:"Apple prend le contre-pied des pliables allongés de la concurrence : un vrai choix de proportions."},
+ {id:"watch12",cat:"Objets & tech",t:"Apple Watch Series 12 et Ultra 4 : zéro changement de forme",u:"https://www.macworld.com/article/3177024/apple-watch-series-12-2026-design-features-specs-release-date.html",src:"Macworld",min:2,
+  p:"Nouvelle puce S11, fonctions santé et IA, autonomie en hausse, mais aucune refonte extérieure. En vente depuis le 18 septembre.",
+  w:"Le boîtier rectangulaire tient depuis 2015. Bon sujet de réflexion pour un projet de montre concept."},
+ {id:"konstrunda",cat:"Mobilier",t:"IKEA Konstrunda : 22 pièces, 7 designers",u:"https://www.gearpatrol.com/home/ikea-konstrunda-collection/",src:"Gear Patrol · Hunker",min:2,
+  p:"Une collection capsule orientée art et objets, avec quelques meubles : une table ronde chrome et verre, un tabouret bois asymétrique, un tabouret triangulaire bleu et une petite table d'appoint en métal.",
+  w:"Du mobilier « statement » à prix IKEA, dans la lignée des pièces qui deviennent collector."},
+ {id:"savatli",cat:"Mobilier",t:"Sami Savatlı, chaise et table LOVE en aluminium coulé",u:"https://aspiremetro.com/editors-picks-fall26",src:"aspire design and home",min:1,
+  p:"Deux pièces entre design de collection et sculpture, coulées en aluminium puis finies à la main, avec des formes continues qui revisitent des typologies connues.",
+  w:"Surfaces fluides et continues : exactement le genre de forme qu'on modélise en SubD."},
+ {id:"marella",cat:"Mobilier",t:"Croft House, collection Marella",u:"https://aspiremetro.com/editors-picks-fall26",src:"aspire design and home",min:1,
+  p:"Neuf pièces, les plus colorées de la marque, inspirées des proportions du mobilier moderne français des années 70, relues à la californienne.",
+  w:""},
+ {id:"bbitalia",cat:"Mobilier",t:"B&B Italia meuble le voilier Orient Express Corinthian",u:"https://cottagesgardens.com/4-new-design-collections-to-check-out-this-fall/",src:"Cottages & Gardens",min:2,
+  p:"52 pièces sur mesure conçues et produites en dix mois, plus de 500 pièces tirées des catalogues B&B Italia et Maxalto.",
+  w:"Cas concret de mobilier sur mesure à grande échelle et sous délai serré."},
+ {id:"bvlgari",cat:"Horlogerie",t:"Bvlgari Aluminium Titanio Chronograph",u:"https://usa.watchpro.com/best-new-watches-to-know-september-2026/",src:"WatchPro",min:2,
+  p:"Boîtier titane grade 5, lunette caoutchouc signature de la collection, calibre automatique B381, compteurs redessinés et échelle tachymétrique.",
+  w:"Un matériau qui porte toute une direction de collection chez Bvlgari cette année."},
+ {id:"nautilus",cat:"Horlogerie",t:"Rattrapage : les 50 ans du Nautilus",u:"https://teddybaldassarre.com/blogs/watches/watches-and-wonders-2026",src:"Teddy Baldassarre",min:3,
+  p:"Édition platine 38 mm ultra-plate avec calibre 240, et une version 41 mm en or blanc en hommage au « Jumbo ». Présentée à Watches and Wonders 2026.",
+  w:"Référence incontournable si tu travailles le dessin de boîtier intégré."},
+ {id:"fusion",cat:"Outils & agenda",t:"Fusion, mise à jour de septembre",u:"https://www.autodesk.com/products/fusion-360/blog/september-2026-major-product-update-whats-new/",src:"Autodesk Fusion Blog",min:2,
+  p:"Lofts plus prévisibles entre profils fermés, nouvelles lumières de scène dans le rendu, outils tôlerie élargis et API en TypeScript.",
+  w:"Pour garder un œil sur ce que fait la concurrence de Rhino."},
+ {id:"aprime",cat:"Outils & agenda",t:"A' Design Award : clôture le 30 septembre",u:"https://natlawreview.com/press-releases/industrial-design-awards-2026-call-entries-announced",src:"National Law Review",min:1,
+  p:"Dernière semaine pour soumettre en design industriel (produits, mobilier, outils, mobilité). Résultats le 1er mai 2027.",
+  w:""}
+];
+const KEY="brief-objet-v0";
+let state={votes:{},filter:"all",more:"",less:""};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)state={...state,...s}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}};
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function render(){
+  const feed=document.getElementById("feed");
+  const cats=[...new Set(items.map(i=>i.cat))].filter(c=>state.filter==="all"||c===state.filter);
+  feed.innerHTML=cats.map(c=>`<section class="cat"><h2>${esc(c)}</h2>${items.filter(i=>i.cat===c).map(i=>{
+    const v=state.votes[i.id];
+    return `<article class="${v==="k"?"kept":v==="d"?"dropped":""}">
+      <h3><a href="${i.u}" target="_blank" rel="noopener">${esc(i.t)}</a><span class="read">${i.min} min</span></h3>
+      <div class="acts"><button class="act k" data-id="${i.id}" data-v="k" aria-pressed="${v==="k"}">Garder</button><button class="act d" data-id="${i.id}" data-v="d" aria-pressed="${v==="d"}">Pas pour moi</button></div>
+      <p>${esc(i.p)}</p>${i.w?`<div class="why"><b>Pourquoi toi</b>${esc(i.w)}</div>`:""}
+      <div class="src">${esc(i.src)}</div></article>`}).join("")}</section>`).join("");
+  const k=Object.values(state.votes).filter(v=>v==="k").length,d=Object.values(state.votes).filter(v=>v==="d").length;
+  document.getElementById("count").textContent=`${items.length} sujets · ${k} gardés · ${d} écartés`;
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===state.filter));
+}
+document.addEventListener("click",e=>{
+  const a=e.target.closest(".act");
+  if(a){const {id,v}=a.dataset;state.votes[id]=state.votes[id]===v?undefined:v;save();render();return}
+  const t=e.target.closest(".tab");if(t){state.filter=t.dataset.f;save();render()}
+});
+["more","less"].forEach(id=>{const el=document.getElementById(id);el.value=state[id]||"";el.addEventListener("input",()=>{state[id]=el.value;save()})});
+document.getElementById("copy").addEventListener("click",()=>{
+  const pick=v=>items.filter(i=>state.votes[i.id]===v).map(i=>"- "+i.t).join("\n")||"- (aucun)";
+  const txt=`Récap Brief Objet n°00\n\nGardés :\n${pick("k")}\n\nÉcartés :\n${pick("d")}\n\nPlus de : ${state.more||"-"}\nMoins de : ${state.less||"-"}\n\nAjuste la prochaine édition en fonction.`;
+  const toast=document.getElementById("toast");
+  const done=()=>{toast.hidden=false;setTimeout(()=>toast.hidden=true,3000)};
+  const fallback=()=>{const ta=document.getElementById("recap");ta.hidden=false;ta.value=txt;ta.select();toast.textContent="Copie auto refusée : le récap est sélectionné dans le champ, copie-le à la main.";done()};
+  if(navigator.clipboard)navigator.clipboard.writeText(txt).then(done,fallback);else fallback();
+});
+render();
+const cur=document.getElementById("cursor");
+addEventListener("mousemove",e=>{cur.style.left=e.clientX+"px";cur.style.top=e.clientY+"px"});
+</script>
+
+</body>
+</html>
