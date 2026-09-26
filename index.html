@@ -61,8 +61,6 @@ textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;background:var
 .primary{align-self:flex-start;border:var(--line);padding:.5rem .8rem}
 .toast{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking)}
 footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
-.cursor{position:fixed;left:0;top:0;pointer-events:none;color:var(--white);mix-blend-mode:difference;font-size:1.6rem;line-height:1;z-index:10;transform:translate(-50%,-50%);display:none}
-@media (hover:hover) and (pointer:fine){body,a,button{cursor:none}.cursor{display:block}textarea{cursor:text}}
 @media (max-width:560px){article{grid-template-columns:1fr}.acts{grid-row:auto;grid-column:1;justify-self:start}.lede{font-size:1.3rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -71,17 +69,17 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
 <div class="wrap">
   <header>
     <h1>Brief Objet</h1>
-    <span class="meta">N° 00 — 21.09.2026</span>
+    <span class="meta">N° 01 — 26.09.2026</span>
   </header>
-  <p class="lede">La veille design de la semaine&nbsp;: objets, mobilier, horlogerie, outils. Garde ce qui te parle, écarte le reste.</p>
+  <p class="lede">Design industriel, design et IA, montres qui osent. Pas de déco, pas de diamants.</p>
 
   <div class="bar">
     <div class="tabs" role="group" aria-label="Filtrer">
       <button class="tab" data-f="all" aria-pressed="true">Tout</button>
-      <button class="tab" data-f="Objets & tech" aria-pressed="false">Objets & tech</button>
-      <button class="tab" data-f="Mobilier" aria-pressed="false">Mobilier</button>
-      <button class="tab" data-f="Horlogerie" aria-pressed="false">Horlogerie</button>
-      <button class="tab" data-f="Outils & agenda" aria-pressed="false">Outils & agenda</button>
+      <button class="tab" data-f="Design industriel" aria-pressed="false">Design industriel</button>
+      <button class="tab" data-f="Design &amp; IA" aria-pressed="false">Design &amp; IA</button>
+      <button class="tab" data-f="Montres" aria-pressed="false">Montres</button>
+      <button class="tab" data-f="Ce week-end" aria-pressed="false">Ce week-end</button>
     </div>
     <span class="count" id="count"></span>
   </div>
@@ -100,46 +98,52 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
     <span class="toast" id="toast" hidden>Récap copié. Colle-le dans la conversation.</span>
   </aside>
 
-  <footer>Édition 00 — sujets sélectionnés par Claude à partir de sources web, à trier par toi.</footer>
+  <footer>Édition 01 — sujets sélectionnés par Claude à partir de sources web, à trier par toi.</footer>
 </div>
 
-<div class="cursor" id="cursor" aria-hidden="true">→</div>
 <script>
 const items=[
- {id:"iphone-duo",cat:"Objets & tech",t:"Apple dévoile l'iPhone Duo, son premier pliable",u:"https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo/",src:"Apple Newsroom · MacRumors",min:3,
-  p:"Format « passeport », plus large que haut une fois ouvert : 5,4\" fermé, 7,6\" déplié. Apple le présente comme l'iPhone le plus fin jamais fait en position ouverte. Sortie prévue le 23 octobre, à partir de 1999 $.",
-  w:"Apple prend le contre-pied des pliables allongés de la concurrence : un vrai choix de proportions."},
- {id:"watch12",cat:"Objets & tech",t:"Apple Watch Series 12 et Ultra 4 : zéro changement de forme",u:"https://www.macworld.com/article/3177024/apple-watch-series-12-2026-design-features-specs-release-date.html",src:"Macworld",min:2,
-  p:"Nouvelle puce S11, fonctions santé et IA, autonomie en hausse, mais aucune refonte extérieure. En vente depuis le 18 septembre.",
-  w:"Le boîtier rectangulaire tient depuis 2015. Bon sujet de réflexion pour un projet de montre concept."},
- {id:"konstrunda",cat:"Mobilier",t:"IKEA Konstrunda : 22 pièces, 7 designers",u:"https://www.gearpatrol.com/home/ikea-konstrunda-collection/",src:"Gear Patrol · Hunker",min:2,
-  p:"Une collection capsule orientée art et objets, avec quelques meubles : une table ronde chrome et verre, un tabouret bois asymétrique, un tabouret triangulaire bleu et une petite table d'appoint en métal.",
-  w:"Du mobilier « statement » à prix IKEA, dans la lignée des pièces qui deviennent collector."},
- {id:"savatli",cat:"Mobilier",t:"Sami Savatlı, chaise et table LOVE en aluminium coulé",u:"https://aspiremetro.com/editors-picks-fall26",src:"aspire design and home",min:1,
-  p:"Deux pièces entre design de collection et sculpture, coulées en aluminium puis finies à la main, avec des formes continues qui revisitent des typologies connues.",
-  w:"Surfaces fluides et continues : exactement le genre de forme qu'on modélise en SubD."},
- {id:"marella",cat:"Mobilier",t:"Croft House, collection Marella",u:"https://aspiremetro.com/editors-picks-fall26",src:"aspire design and home",min:1,
-  p:"Neuf pièces, les plus colorées de la marque, inspirées des proportions du mobilier moderne français des années 70, relues à la californienne.",
+ {id:"mutthorn",cat:"Design industriel",t:"Chaise Mutthorn, Panter&Tourron pour Horgenglarus",u:"https://horgenglarus.ch/en/horgenglarus/latest",src:"Horgenglarus",min:1,
+  p:"Dessinée à l'origine pour la cabane du Mutthorn, la chaise entre officiellement dans la collection Horgenglarus. Présentée à neue räume, Halle 550 à Oerlikon, du 24 au 27 septembre.",
+  w:"Une pièce née d'un usage réel en montagne, fabriquée par le plus ancien fabricant de chaises de Suisse."},
+ {id:"scout",cat:"Design industriel",t:"Konstantin Grcic, Scout pour Vitra",u:"https://www.dezeen.com/2026/05/07/vitra-konstantin-grcic-scout-office-table-system/",src:"Dezeen",min:3,
+  p:"Système de tables en tube d'acier, cinq modèles dont trois sur roulettes, plateaux rectangulaires ou trapézoïdaux qui s'assemblent. Réglage en hauteur par sangles et points de fixation pour écrans et accessoires.",
+  w:"Grcic assume un objet « en version bêta » : pensé pour être reconfiguré plutôt que figé."},
+ {id:"nocturne",cat:"Design industriel",t:"Konstantin Grcic, lampe Nocturne pour Flos",u:"https://www.wallpaper.com/design-interiors/lighting/flos-konstantin-grcic-nocturne-lamp-salone-del-mobile-2026",src:"Wallpaper*",min:2,
+  p:"Tige en aluminium extrudé et abat-jour en borosilicate soufflé, en cône ou en dôme. L'idée est de mêler lumière dirigée, lumière diffuse et lueur du verre, comme un clair de lune. Déclinée en lampadaire, suspension et applique.",
+  w:"Grcic part de la source lumineuse puis construit l'objet autour. Une méthode plus qu'un style."},
+ {id:"vzug",cat:"Design industriel",t:"V-ZUG, une plaque à induction invisible",u:"https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/",src:"d5mag · Zurich Design Weeks",min:1,
+  p:"Installation « Table Rituals » : la plaque de cuisson disparaît sous une surface minérale continue, et la table redevient une table.",
+  w:"Un vrai sujet d'intégration produit : faire disparaître la technique dans le matériau."},
+ {id:"zhdk",cat:"Design industriel",t:"ZHdK, « Material Arguments »",u:"https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/",src:"d5mag · Zurich Design Weeks",min:1,
+  p:"L'exposition remonte aux décisions de fabrication qui font qu'un matériau devient ressource ou déchet.",
   w:""},
- {id:"bbitalia",cat:"Mobilier",t:"B&B Italia meuble le voilier Orient Express Corinthian",u:"https://cottagesgardens.com/4-new-design-collections-to-check-out-this-fall/",src:"Cottages & Gardens",min:2,
-  p:"52 pièces sur mesure conçues et produites en dix mois, plus de 500 pièces tirées des catalogues B&B Italia et Maxalto.",
-  w:"Cas concret de mobilier sur mesure à grande échelle et sous délai serré."},
- {id:"bvlgari",cat:"Horlogerie",t:"Bvlgari Aluminium Titanio Chronograph",u:"https://usa.watchpro.com/best-new-watches-to-know-september-2026/",src:"WatchPro",min:2,
-  p:"Boîtier titane grade 5, lunette caoutchouc signature de la collection, calibre automatique B381, compteurs redessinés et échelle tachymétrique.",
-  w:"Un matériau qui porte toute une direction de collection chez Bvlgari cette année."},
- {id:"nautilus",cat:"Horlogerie",t:"Rattrapage : les 50 ans du Nautilus",u:"https://teddybaldassarre.com/blogs/watches/watches-and-wonders-2026",src:"Teddy Baldassarre",min:3,
-  p:"Édition platine 38 mm ultra-plate avec calibre 240, et une version 41 mm en or blanc en hommage au « Jumbo ». Présentée à Watches and Wonders 2026.",
-  w:"Référence incontournable si tu travailles le dessin de boîtier intégré."},
- {id:"fusion",cat:"Outils & agenda",t:"Fusion, mise à jour de septembre",u:"https://www.autodesk.com/products/fusion-360/blog/september-2026-major-product-update-whats-new/",src:"Autodesk Fusion Blog",min:2,
-  p:"Lofts plus prévisibles entre profils fermés, nouvelles lumières de scène dans le rendu, outils tôlerie élargis et API en TypeScript.",
-  w:"Pour garder un œil sur ce que fait la concurrence de Rhino."},
- {id:"aprime",cat:"Outils & agenda",t:"A' Design Award : clôture le 30 septembre",u:"https://natlawreview.com/press-releases/industrial-design-awards-2026-call-entries-announced",src:"National Law Review",min:1,
-  p:"Dernière semaine pour soumettre en design industriel (produits, mobilier, outils, mobilité). Résultats le 1er mai 2027.",
+ {id:"rhinoai",cat:"Design & IA",t:"RhinoAI : McNeel branche les assistants IA sur Rhino",u:"https://github.com/mcneel/rhinoai",src:"GitHub · McNeel",min:3,
+  p:"Projet open source de McNeel qui permet à un assistant IA (Claude, Copilot, Gemini…) de créer et modifier une géométrie directement dans Rhino, via le protocole MCP. Développé sur la branche Rhino 9, avec documentation et exemples.",
+  w:"C'est ton outil principal : de quoi automatiser les tâches répétitives de modélisation en langage naturel."},
+ {id:"dog",cat:"Design & IA",t:"HEAD Genève, « Probably A Dog »",u:"https://2026.designweeks.ch/en/events/2280-probably-a-dog",src:"Zurich Design Weeks",min:1,
+  p:"Projet de diplôme d'Ekaterina Bliznyuk, exposé aux Zurich Design Weeks, qui explore la rencontre entre IA, savoir-faire et pratique artistique.",
+  w:""},
+ {id:"aireport",cat:"Design & IA",t:"AI in Design Report 2026",u:"https://stateofaidesign.com/",src:"Designer Fund · Foundation Capital",min:4,
+  p:"Enquête auprès de plus de 900 designers dans 60 pays. Ils utilisent deux fois plus d'outils IA qu'en 2025, et la fiabilité des résultats reste le principal point faible. Le rapport est surtout orienté produit numérique.",
+  w:"Utile pour situer où en est la profession, même si le design industriel y est peu représenté."},
+ {id:"ressence",cat:"Montres",t:"Ressence Type 11, premier mouvement maison",u:"https://watchesbysjx.com/2026/04/ressence-type-11.html",src:"SJX Watches",min:3,
+  p:"Calibre RW-01 développé en interne, 60 h de réserve de marche, remontage et réglage uniquement par le fond. Affichage régulateur sur module à bain d'huile, boîtier titane 41 mm sans couronne. CHF 23'000.",
+  w:"La montre la plus « design industriel » du marché : aucune couronne, tout passe par l'objet lui-même."},
+ {id:"ming",cat:"Montres",t:"MING 57.05 Comet, un fuseau horaire en un clic",u:"https://www.thehourmarkers.com/articles/ming-watch-geneva-watch-days-2026",src:"The Hour Markers",min:2,
+  p:"Deux lunettes : les villes sans heure d'été restent fixes, les autres sont sur une lunette mobile. Un seul cran de 15° décale uniquement ces villes d'une heure, avec un indicateur qui passe du gris au rouge. 200 pièces, dès CHF 6'950.",
+  w:"Un vrai problème d'usage réglé par un détail mécanique."},
+ {id:"mauron",cat:"Montres",t:"Mauron Musy MU05 nO-Ring Origin",u:"https://www.wallpaper.com/watches-jewellery/geneva-watch-days-2026-highlights",src:"Wallpaper*",min:1,
+  p:"Montre en titane de la marque jurassienne, avec un cadran squeletté qui reproduit les notes et calculs manuscrits du fondateur pendant le développement.",
+  w:"L'ingénierie montrée comme décor : le process devient le produit."},
+ {id:"neueraeume",cat:"Ce week-end",t:"neue räume 26 et Zurich Design Weeks, derniers jours",u:"https://d5mag.com/out-of-comfort-zones-zurich-design-weeks-2026-takes-over-50-city-venues-17-27-september/",src:"d5mag",min:1,
+  p:"Les deux se terminent dimanche 27 septembre. neue räume est à la Halle 550 à Oerlikon, les Design Weeks dans une cinquantaine de lieux, dont le Museum für Gestaltung et H100 avec « Out of Glarus ».",
   w:""}
 ];
 const KEY="brief-objet-v0";
 let state={votes:{},filter:"all",more:"",less:""};
 try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)state={...state,...s}}catch(e){}
+if(state.filter!=="all"&&!items.some(i=>i.cat===state.filter))state.filter="all";
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}};
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function render(){
@@ -164,15 +168,13 @@ document.addEventListener("click",e=>{
 ["more","less"].forEach(id=>{const el=document.getElementById(id);el.value=state[id]||"";el.addEventListener("input",()=>{state[id]=el.value;save()})});
 document.getElementById("copy").addEventListener("click",()=>{
   const pick=v=>items.filter(i=>state.votes[i.id]===v).map(i=>"- "+i.t).join("\n")||"- (aucun)";
-  const txt=`Récap Brief Objet n°00\n\nGardés :\n${pick("k")}\n\nÉcartés :\n${pick("d")}\n\nPlus de : ${state.more||"-"}\nMoins de : ${state.less||"-"}\n\nAjuste la prochaine édition en fonction.`;
+  const txt=`Récap Brief Objet n°01\n\nGardés :\n${pick("k")}\n\nÉcartés :\n${pick("d")}\n\nPlus de : ${state.more||"-"}\nMoins de : ${state.less||"-"}\n\nAjuste la prochaine édition en fonction.`;
   const toast=document.getElementById("toast");
   const done=()=>{toast.hidden=false;setTimeout(()=>toast.hidden=true,3000)};
   const fallback=()=>{const ta=document.getElementById("recap");ta.hidden=false;ta.value=txt;ta.select();toast.textContent="Copie auto refusée : le récap est sélectionné dans le champ, copie-le à la main.";done()};
   if(navigator.clipboard)navigator.clipboard.writeText(txt).then(done,fallback);else fallback();
 });
 render();
-const cur=document.getElementById("cursor");
-addEventListener("mousemove",e=>{cur.style.left=e.clientX+"px";cur.style.top=e.clientY+"px"});
 </script>
 
 </body>
