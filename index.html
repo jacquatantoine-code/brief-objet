@@ -51,8 +51,9 @@ article p{grid-column:1/-1;margin:0;max-width:62ch;font-size:.95rem;line-height:
 .why{grid-column:1/-1;font-size:.95rem;line-height:1.4;max-width:62ch;background:var(--bg);padding:var(--pad) .5rem}
 .why b{font-weight:400;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);margin-right:8px}
 .src{grid-column:1/-1;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
-.acts-unused{display:flex;gap:0;grid-row:1;grid-column:2;align-self:start;border:var(--line)}
+.acts{display:flex;gap:0;grid-row:1;grid-column:2;align-self:start;border:var(--line)}
 .act+.act{border-left:var(--line)}
+article.kept h3{text-decoration:underline}
 article.dropped{color:var(--grey)}
 article.dropped .why{background:transparent}
 article.dropped .src,article.dropped .read{color:var(--grey)}
@@ -65,7 +66,7 @@ textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;background:var
 .primary{align-self:flex-start;border:var(--line);padding:.5rem .8rem}
 .toast{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking)}
 footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
-@media (max-width:560px){article{grid-template-columns:1fr}.acts-unused{grid-row:auto;grid-column:1;justify-self:start}header .by{color:#6b6b6b}
+@media (max-width:560px){article{grid-template-columns:1fr}.acts{grid-row:auto;grid-column:1;justify-self:start}header .by{color:#6b6b6b}
 .lede{font-size:1.3rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -92,6 +93,18 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
   <main id="feed"></main>
 
 
+
+  <aside id="atelier" hidden>
+    <h2>Ligne éditoriale</h2>
+    <p>Trie les sujets, note ce que tu veux voir plus ou moins, puis copie le récap pour préparer l'édition suivante.</p>
+    <label for="more">Plus de…</label>
+    <textarea id="more" placeholder="Ex. objets du quotidien bien dessinés, studios suisses, CMF, sorties Rhino…"></textarea>
+    <label for="less">Moins de…</label>
+    <textarea id="less" placeholder="Ex. déco d'intérieur, tendances génériques, contenu sponsorisé…"></textarea>
+    <button class="primary" id="copy">Copier mon récap</button>
+    <textarea id="recap" readonly hidden aria-label="Récap à copier"></textarea>
+    <span class="toast" id="toast" hidden>Récap copié.</span>
+  </aside>
   <footer>Édition 01 — sélection <a href="https://antoinejacquat.com">Antoine Jacquat</a>, Lausanne</footer>
 </div>
 
@@ -134,18 +147,44 @@ const items=[
   p:"Les deux se terminent dimanche 27 septembre. neue räume est à la Halle 550 à Oerlikon, les Design Weeks dans une cinquantaine de lieux, dont le Museum für Gestaltung et H100 avec « Out of Glarus ».",
   w:""}
 ];
-let filter="all";
+const EDIT=location.hash==="#atelier";
+const KEY="brief-objet-atelier";
+let filter="all",st={votes:{},more:"",less:""};
+if(EDIT){try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x)st={...st,...x}}catch(e){}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function render(){
   const cats=[...new Set(items.map(i=>i.cat))].filter(c=>filter==="all"||c===filter);
-  document.getElementById("feed").innerHTML=cats.map(c=>`<section class="cat"><h2>${esc(c)}</h2>${items.filter(i=>i.cat===c).map(i=>`<article>
+  document.getElementById("feed").innerHTML=cats.map(c=>`<section class="cat"><h2>${esc(c)}</h2>${items.filter(i=>i.cat===c).map(i=>{
+    const v=st.votes[i.id];
+    return `<article class="${EDIT&&v==="k"?"kept":EDIT&&v==="d"?"dropped":""}">
       <h3><a href="${i.u}" target="_blank" rel="noopener">${esc(i.t)}</a><span class="read">${i.min} min</span></h3>
+      ${EDIT?`<div class="acts"><button class="act" data-id="${i.id}" data-v="k" aria-pressed="${v==="k"}">Garder</button><button class="act" data-id="${i.id}" data-v="d" aria-pressed="${v==="d"}">Écarter</button></div>`:""}
       <p>${esc(i.p)}</p>${i.w?`<div class="why"><b>Pourquoi</b>${esc(i.w)}</div>`:""}
-      <div class="src">${esc(i.src)}</div></article>`).join("")}</section>`).join("");
-  document.getElementById("count").textContent=`${items.length} sujets`;
+      <div class="src">${esc(i.src)}</div></article>`}).join("")}</section>`).join("");
+  const k=Object.values(st.votes).filter(v=>v==="k").length,d=Object.values(st.votes).filter(v=>v==="d").length;
+  document.getElementById("count").textContent=EDIT?`${items.length} sujets · ${k} gardés · ${d} écartés`:`${items.length} sujets`;
   document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===filter));
 }
-document.addEventListener("click",e=>{const t=e.target.closest(".tab");if(t){filter=t.dataset.f;render()}});
+document.addEventListener("click",e=>{
+  const a=e.target.closest(".act");
+  if(a){const {id,v}=a.dataset;st.votes[id]=st.votes[id]===v?undefined:v;save();render();return}
+  const t=e.target.closest(".tab");if(t){filter=t.dataset.f;render()}
+});
+if(EDIT){
+  document.getElementById("atelier").hidden=false;
+  ["more","less"].forEach(id=>{const el=document.getElementById(id);el.value=st[id]||"";el.addEventListener("input",()=>{st[id]=el.value;save()})});
+  document.getElementById("copy").addEventListener("click",()=>{
+    const pick=v=>items.filter(i=>st.votes[i.id]===v).map(i=>"- "+i.t).join("\n")||"- (aucun)";
+    const n=(document.querySelector("header .meta")||{}).textContent||"";
+    const txt=`Récap Brief Objet ${n}\n\nGardés :\n${pick("k")}\n\nÉcartés :\n${pick("d")}\n\nPlus de : ${st.more||"-"}\nMoins de : ${st.less||"-"}`;
+    const toast=document.getElementById("toast");
+    const done=()=>{toast.hidden=false;setTimeout(()=>toast.hidden=true,3000)};
+    const fallback=()=>{const ta=document.getElementById("recap");ta.hidden=false;ta.value=txt;ta.select();toast.textContent="Copie auto impossible : sélectionne le texte ci-dessus.";done()};
+    if(navigator.clipboard)navigator.clipboard.writeText(txt).then(done,fallback);else fallback();
+  });
+}
+addEventListener("hashchange",()=>location.reload());
 render();
 </script>
 
