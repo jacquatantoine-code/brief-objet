@@ -50,7 +50,7 @@ article h3 a{text-decoration:none;background-image:linear-gradient(currentColor,
 article h3 a:hover{background-size:100% 1px}
 .read{font-size:.82rem;letter-spacing:.04em;color:#6b6b6b;margin-left:8px;white-space:nowrap}
 article p{grid-column:1/-1;margin:0;max-width:62ch;font-size:.95rem;line-height:1.4}
-.why{grid-column:1/-1;font-size:.95rem;line-height:1.4;max-width:62ch;background:var(--bg);padding:var(--pad) .5rem}
+.why{grid-column:1/-1;font-size:.95rem;line-height:1.4;max-width:62ch;font-style:italic;color:#555;border-left:1px solid var(--black);padding-left:.6rem}
 .why b{font-weight:400;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);margin-right:8px}
 .src{grid-column:1/-1;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
 .acts{display:flex;gap:0;grid-row:1;grid-column:2;align-self:start;border:var(--line)}
@@ -167,7 +167,7 @@ function render(){
       ${i.img?`<a class="thumb" href="${i.u}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="${i.img}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('article').classList.remove('has-img');this.parentNode.remove()"></a>`:""}
       <h3><a href="${i.u}" target="_blank" rel="noopener">${esc(i.t)}</a><span class="read">${i.min} min</span></h3>
       ${EDIT?`<div class="acts"><button class="act" data-id="${i.id}" data-v="k" aria-pressed="${v==="k"}">Keep</button><button class="act" data-id="${i.id}" data-v="d" aria-pressed="${v==="d"}">Drop</button></div>`:""}
-      <p>${esc(i.p)}</p>${i.w?`<div class="why"><b>Why</b>${esc(i.w)}</div>`:""}
+      <p>${esc(i.p)}</p>${i.w?`<div class="why">${esc(i.w)}</div>`:""}
       <div class="src">${esc(i.src)}</div></article>`}).join("")}</section>`).join("");
   const k=Object.values(st.votes).filter(v=>v==="k").length,d=Object.values(st.votes).filter(v=>v==="d").length;
   document.getElementById("count").textContent=EDIT?`${items.length} stories · ${k} kept · ${d} dropped`:`${items.length} stories`;
