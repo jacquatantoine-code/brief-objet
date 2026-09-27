@@ -77,6 +77,12 @@ article .thumb:hover img{transform:scale(1.04)}
 article.has-img>*:not(.thumb){grid-column:2}
 @media (max-width:560px){article.has-img{grid-template-columns:1fr}article .thumb{grid-row:auto;max-width:100%}article.has-img>*:not(.thumb){grid-column:1}}
 article.has-img .acts{grid-row:auto;justify-self:start}
+.support{margin-top:48px;border-top:var(--line);padding-block:20px 8px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.support h2{font:inherit;margin:0;text-transform:uppercase;letter-spacing:var(--tracking)}
+.support p{margin:0;font-size:.95rem;max-width:62ch}
+.donate{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);text-decoration:none;border:var(--line);padding:.5rem .8rem;transition:background .25s ease,color .25s ease}
+.donate:hover{background:var(--black);color:var(--white)}
+.contact{color:#6b6b6b}.contact .mail{color:var(--black);user-select:all}
 </style>
 </head>
 <body>
@@ -104,6 +110,12 @@ article.has-img .acts{grid-row:auto;justify-self:start}
 
 
 
+  <section class="support" aria-labelledby="support-h">
+    <h2 id="support-h">Support Picks</h2>
+    <p>Picks is free, independent and ad-free. If it brings you something good each week, you can support it with a small donation.</p>
+    <a class="donate" href="https://www.paypal.com/donate/?business=jacquatantoine%40gmail.com&amp;currency_code=CHF&amp;item_name=Support%20Picks" target="_blank" rel="noopener">Donate via PayPal</a>
+    <p class="contact">Tips, projects, feedback: <span class="mail">info@antoinejacquat.com</span></p>
+  </section>
   <aside id="atelier" hidden>
     <h2>Editorial line</h2>
     <p>Sort the stories, note what you want more or less of, then copy the recap for the next issue.</p>
