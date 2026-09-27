@@ -69,10 +69,10 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
 .card.dropped{opacity:.3}
 .card.kept h3{text-decoration:underline}
 .car{position:relative;margin:0;background:var(--bg);aspect-ratio:4/3;overflow:hidden;cursor:zoom-in}
-.card.feature .car{aspect-ratio:16/8}
+.card.feature .car{aspect-ratio:16/9;max-height:78vh;width:100%}
 .slides{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
 .slides::-webkit-scrollbar{display:none}
-.slides img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start;display:block}
+.slides img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;scroll-snap-align:start;display:block;background:var(--bg)}
 .nav{position:absolute;top:50%;transform:translateY(-50%);border:0;background:var(--white);color:var(--black);width:34px;height:34px;font:inherit;font-size:1rem;cursor:pointer;opacity:0;transition:opacity .25s ease}
 .nav.prev{left:10px}.nav.next{right:10px}
 .car:hover .nav,.nav:focus-visible{opacity:1}
