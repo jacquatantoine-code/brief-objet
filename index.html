@@ -65,11 +65,9 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
 .contact{color:#6b6b6b}.contact .mail{color:var(--black);user-select:all}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:44px 24px;padding-top:20px}
 .card{display:flex;flex-direction:column;gap:10px;min-width:0;transition:opacity .3s ease}
-.card.feature{grid-column:1/-1}
 .card.dropped{opacity:.3}
 .card.kept h3{text-decoration:underline}
 .car{position:relative;margin:0;background:var(--bg);aspect-ratio:4/3;overflow:hidden;cursor:zoom-in}
-.card.feature .car{aspect-ratio:16/9;max-height:78vh;width:100%}
 .slides{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
 .slides::-webkit-scrollbar{display:none}
 .slides img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;scroll-snap-align:start;display:block;background:var(--bg)}
@@ -95,7 +93,7 @@ footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing
 #lb .close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);right:10px;z-index:2;border:var(--line);background:var(--white);font:inherit;font-size:.8rem;text-transform:uppercase;letter-spacing:var(--tracking);padding:.35rem .6rem;cursor:pointer}
 #lb .nav{opacity:1}
 body.lb-open{overflow:hidden}
-@media (max-width:700px){.card.feature .car{aspect-ratio:4/3}.nav{opacity:1;width:30px;height:30px}}
+@media (max-width:700px){.nav{opacity:1;width:30px;height:30px}}
 </style>
 </head>
 <body>
@@ -198,18 +196,26 @@ let filter="all",st={votes:{},more:"",less:""};
 if(EDIT){try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x)st={...st,...x}}catch(e){}}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function hi(u){
+  try{
+    if(/static\.dezeen\.com|cdn\.galeriemagazine\.com|archipanic\.com|lightzoomlumiere\.fr|wp-content\/uploads/.test(u)) u=u.replace(/-\d{2,4}x\d{2,4}(?=\.(jpe?g|png|webp)(\?|$))/i,"");
+    if(/images\.adsttc\.com/.test(u)) u=u.replace("/medium_jpg/","/large_jpg/");
+    if(/cdn\.mos\.cms\.futurecdn\.net/.test(u)) u=u.replace(/-(\d{3,4})-80\.(jpe?g|png|webp)$/i,"-1920-80.$2");
+  }catch(e){}
+  return u;
+}
 const imgsOf=i=>[...new Set([...(i.imgs||[]),...(i.img?[i.img]:[])])];
 function car(i){
   const im=imgsOf(i); if(!im.length) return "";
   const multi=im.length>1;
-  return `<figure class="car" data-id="${i.id}"><div class="slides">${im.map(u=>`<img src="${u}" alt="${esc(i.t)}" loading="lazy" referrerpolicy="no-referrer" onerror="imgErr(this)">`).join("")}</div>${multi?`<button class="nav prev" aria-label="Previous image">←</button><button class="nav next" aria-label="Next image">→</button><div class="dots">${im.map((_,k)=>`<i class="${k?"":"on"}"></i>`).join("")}</div>`:""}</figure>`;
+  return `<figure class="car" data-id="${i.id}"><div class="slides">${im.map(u=>`<img src="${hi(u)}" data-fb="${u}" alt="${esc(i.t)}" loading="lazy" referrerpolicy="no-referrer" onerror="imgErr(this)">`).join("")}</div>${multi?`<button class="nav prev" aria-label="Previous image">←</button><button class="nav next" aria-label="Next image">→</button><div class="dots">${im.map((_,k)=>`<i class="${k?"":"on"}"></i>`).join("")}</div>`:""}</figure>`;
 }
 function credit(i){return `<div class="credit">Via <a href="${i.u}" target="_blank" rel="noopener">${esc(i.src)}</a></div>`}
 function render(){
   const cats=[...new Set(items.map(i=>i.cat))].filter(c=>filter==="all"||c===filter);
   document.getElementById("feed").innerHTML=cats.map(c=>`<section class="cat"><h2>${esc(c)}</h2><div class="grid">${items.filter(i=>i.cat===c).map((i,n)=>{
     const v=st.votes[i.id];
-    return `<article class="card${n===0&&imgsOf(i).length?" feature":""}${EDIT&&v==="k"?" kept":EDIT&&v==="d"?" dropped":""}">
+    return `<article class="card${EDIT&&v==="k"?" kept":EDIT&&v==="d"?" dropped":""}">
       ${car(i)}
       <h3>${esc(i.t)}</h3>
       ${EDIT?`<div class="acts"><button class="act" data-id="${i.id}" data-v="k" aria-pressed="${v==="k"}">Keep</button><button class="act" data-id="${i.id}" data-v="d" aria-pressed="${v==="d"}">Drop</button></div>`:""}
@@ -221,7 +227,7 @@ function render(){
   wire(document);
 }
 function wire(root){root.querySelectorAll(".slides").forEach(el=>{el.onscroll=()=>{const n=Math.round(el.scrollLeft/el.clientWidth);el.parentNode.querySelectorAll(".dots i").forEach((d,k)=>d.classList.toggle("on",k===n))}})}
-function imgErr(img){const fig=img.closest(".car");img.remove();if(!fig)return;const left=fig.querySelectorAll(".slides img").length;if(!left){fig.remove();return}const dots=fig.querySelector(".dots");if(dots)dots.innerHTML=Array.from({length:left},(_,k)=>`<i class="${k?"":"on"}"></i>`).join("");if(left<2)fig.querySelectorAll(".nav,.dots").forEach(e=>e.remove())}
+function imgErr(img){if(img.dataset.fb&&img.src!==img.dataset.fb){img.src=img.dataset.fb;img.dataset.fb="";return}const fig=img.closest(".car");img.remove();if(!fig)return;const left=fig.querySelectorAll(".slides img").length;if(!left){fig.remove();return}const dots=fig.querySelector(".dots");if(dots)dots.innerHTML=Array.from({length:left},(_,k)=>`<i class="${k?"":"on"}"></i>`).join("");if(left<2)fig.querySelectorAll(".nav,.dots").forEach(e=>e.remove())}
 function openLb(id){
   const i=items.find(x=>x.id===id); if(!i)return;
   const lb=document.createElement("div");lb.id="lb";lb.setAttribute("role","dialog");lb.setAttribute("aria-modal","true");
