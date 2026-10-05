@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Brief Objet</title>
+<meta name="description" content="Brief Objet — a weekly design selection by industrial designer Antoine Jacquat (antoinejacquat.com).">
+<meta property="og:title" content="Brief Objet">
+<meta property="og:description" content="A weekly design selection by Antoine Jacquat — antoinejacquat.com">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap">
+<style>
+@font-face{font-family:"SuisseIntl";src:url("SuisseBPIntl-Regular.woff") format("woff"),url("/SuisseBPIntl-Regular.woff?v=2") format("woff");font-weight:400;font-style:normal;font-display:swap}
+</style>
+<style>
+/* Style repris d'antoinejacquat.com : noir/blanc, traits 1px, capitales espacées, survol gris */
+:root{
+  --black:#000; --white:#fff; --grey:#c4c4c4; --bg:#f4f4f4; --line:1px solid #000;
+  --pad:.275rem; --tracking:.08em;
+  --font:"Suisse Intl","SuisseIntl","Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{font-size:15.84px}
+body{background:var(--white);color:var(--black);font:400 1.1rem/1.35 var(--font);padding-inline:16px;padding-block:0 64px}
+a{color:inherit}
+.wrap{max-width:1280px;margin:0 auto;display:flex;flex-direction:column}
+.up{text-transform:uppercase;letter-spacing:var(--tracking)}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:var(--line);padding-block:14px 10px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--white);z-index:2}
+header h1{font:inherit;margin:0;text-transform:uppercase;letter-spacing:var(--tracking)}
+header .meta{text-transform:uppercase;letter-spacing:var(--tracking);font-variant-numeric:tabular-nums}
+header .by{color:#6b6b6b}
+.sub{margin:-16px 0 32px;font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
+.sub a{color:var(--black)}
+.lede{margin:0;padding-block:28px 32px;max-width:36ch;font-size:1.6rem;line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;border-top:var(--line);border-bottom:var(--line);padding-block:8px}
+.tabs{display:flex;flex-wrap:wrap;gap:0}
+.tab,.act,.primary{font:inherit;font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);background:transparent;color:var(--black);border:0;padding:.35rem .6rem;cursor:pointer;transition:background .25s ease,color .25s ease}
+.tab:hover,.act:hover,.primary:hover{background:var(--grey);color:var(--white)}
+.tab[aria-pressed="true"],.act[aria-pressed="true"]{background:var(--black);color:var(--white)}
+.count{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);font-variant-numeric:tabular-nums;color:#6b6b6b}
+section.cat{display:flex;flex-direction:column}
+.cat h2{font:inherit;font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);margin:0;padding-block:36px 8px;border-bottom:var(--line)}
+.why{grid-column:1/-1;font-size:.95rem;line-height:1.4;max-width:62ch;font-style:italic;color:#555;border-left:1px solid var(--black);padding-left:.6rem}
+.why b{font-weight:400;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);margin-right:8px}
+.tab:focus-visible,.act:focus-visible,.primary:focus-visible,a:focus-visible,textarea:focus-visible{outline:1px solid var(--black);outline-offset:2px}
+aside{margin-top:48px;background:var(--bg);border-top:var(--line);border-bottom:var(--line);padding:20px 16px;display:flex;flex-direction:column;gap:12px}
+aside h2{font:inherit;margin:0;text-transform:uppercase;letter-spacing:var(--tracking)}
+aside p{margin:0;font-size:.95rem;max-width:62ch}
+label{font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking)}
+textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;background:var(--white);color:var(--black);border:var(--line);border-radius:0;padding:.5rem;resize:vertical}
+.primary{align-self:flex-start;border:var(--line);padding:.5rem .8rem}
+.toast{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking)}
+footer{padding-top:16px;font-size:.72rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
+@media (max-width:560px){article{grid-template-columns:1fr}.acts{grid-row:auto;grid-column:1;justify-self:start}.lede{font-size:1.3rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.support{margin-top:48px;border-top:var(--line);padding-block:20px 8px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.support h2{font:inherit;margin:0;text-transform:uppercase;letter-spacing:var(--tracking)}
+.support p{margin:0;font-size:.95rem;max-width:62ch}
+.donate{font-size:.82rem;text-transform:uppercase;letter-spacing:var(--tracking);text-decoration:none;border:var(--line);padding:.5rem .8rem;transition:background .25s ease,color .25s ease}
+.donate:hover{background:var(--black);color:var(--white)}
+.contact{color:#6b6b6b}.contact .mail{color:var(--black);user-select:all}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:44px 24px;padding-top:20px}
+.card{display:flex;flex-direction:column;gap:10px;min-width:0;transition:opacity .3s ease}
+.card.dropped{opacity:.3}
+.card.kept h3{text-decoration:underline}
+.car{position:relative;margin:0;background:var(--bg);aspect-ratio:4/3;overflow:hidden;cursor:zoom-in}
+.slides{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;scroll-snap-align:start;display:block;background:var(--bg)}
+.nav{position:absolute;top:50%;transform:translateY(-50%);border:0;background:var(--white);color:var(--black);width:34px;height:34px;font:inherit;font-size:1rem;cursor:pointer;opacity:0;transition:opacity .25s ease}
+.nav.prev{left:10px}.nav.next{right:10px}
+.car:hover .nav,.nav:focus-visible{opacity:1}
+.dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px;pointer-events:none}
+.dots i{width:6px;height:6px;background:var(--white);opacity:.5;mix-blend-mode:difference}
+.dots i.on{opacity:1}
+.count-img{position:absolute;top:10px;right:10px;background:var(--white);font-size:.72rem;letter-spacing:var(--tracking);padding:2px 6px}
+.card h3{font:inherit;font-size:1.05rem;margin:0;text-wrap:balance;line-height:1.25}
+.card p{margin:0;font-size:.9rem;line-height:1.4;max-width:60ch}
+.card .why{font-size:.9rem}
+.credit{font-size:.7rem;text-transform:uppercase;letter-spacing:var(--tracking);color:#6b6b6b}
+.credit a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.credit a:hover{border-color:currentColor}
+.acts{display:flex;align-self:flex-start;border:var(--line)}
+.act+.act{border-left:var(--line)}
+#lb{position:fixed;inset:0;z-index:20;background:var(--white);display:grid;grid-template-rows:1fr auto;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+#lb .car{aspect-ratio:auto;height:100%;background:var(--white);cursor:default}
+#lb .slides img{object-fit:contain}
+#lb .cap{padding:14px 16px 20px;border-top:var(--line);display:flex;flex-direction:column;gap:6px;max-width:900px}
+#lb .close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);right:10px;z-index:2;border:var(--line);background:var(--white);font:inherit;font-size:.8rem;text-transform:uppercase;letter-spacing:var(--tracking);padding:.35rem .6rem;cursor:pointer}
+#lb .nav{opacity:1}
+body.lb-open{overflow:hidden}
+@media (max-width:700px){.nav{opacity:1;width:30px;height:30px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Brief Objet <span class="by">by Antoine Jacquat</span></h1>
+    <span class="meta">No. 02 — 27.09.2026</span>
+  </header>
+  <p class="lede">Design I came across this week and liked.</p>
+  <p class="sub">Curated by Antoine Jacquat, industrial designer in Lausanne. Work at <a href="https://antoinejacquat.com" target="_blank" rel="noopener">antoinejacquat.com</a></p>
+
+  <div class="bar">
+    <div class="tabs" role="group" aria-label="Filter">
+      <button class="tab" data-f="all" aria-pressed="true">All</button>
+      <button class="tab" data-f="Industrial Design" aria-pressed="false">Industrial Design</button>
+      <button class="tab" data-f="Swiss Scene" aria-pressed="false">Swiss Scene</button>
+      <button class="tab" data-f="Collectible" aria-pressed="false">Collectible</button>
+      <button class="tab" data-f="Design &amp; AI" aria-pressed="false">Design &amp; AI</button>
+      <button class="tab" data-f="Tools &amp; Process" aria-pressed="false">Tools &amp; Process</button>
+    </div>
+    <span class="count" id="count"></span>
+  </div>
+
+  <main id="feed"></main>
+
+
+
+  <section class="support" aria-labelledby="support-h">
+    <h2 id="support-h">Support Picks</h2>
+    <p>Picks is free, independent and ad-free. If it brings you something good each week, you can support it with a small donation.</p>
+    <a class="donate" href="https://www.paypal.com/donate/?business=info%40antoinejacquat.com&amp;currency_code=CHF&amp;item_name=Support%20Picks" target="_blank" rel="noopener">Donate via PayPal</a>
+    <p class="contact">Tips, projects, feedback: <span class="mail">info@antoinejacquat.com</span></p>
+  </section>
+  <aside id="atelier" hidden>
+    <h2>Editorial line</h2>
+    <p>Sort the stories, note what you want more or less of, then copy the recap for the next issue.</p>
+    <label for="more">More of…</label>
+    <textarea id="more" placeholder="e.g. well-made everyday objects, Swiss studios, CMF, Rhino releases…"></textarea>
+    <label for="less">Less of…</label>
+    <textarea id="less" placeholder="e.g. interiors, generic trend pieces, sponsored content…"></textarea>
+    <button class="primary" id="copy">Copy recap</button>
+    <textarea id="recap" readonly hidden aria-label="Recap to copy"></textarea>
+    <span class="toast" id="toast" hidden>Recap copied.</span>
+  </aside>
+  <footer>Issue 02 — curated by <a href="https://antoinejacquat.com">Antoine Jacquat</a>, Lausanne</footer>
+</div>
+
+<script>
+const items=[
+ {"id": "type9maze", "cat": "Industrial Design", "t": "Ressence Type 9 × Jules Wittock — a maze on the dial", "u": "https://watchesbysjx.com/2026/09/ressence-type-9-jules-wittock.html", "src": "SJX Watches", "p": "Belgian maze artist Jules Wittock drew a working maze for the rotating ROCS 9 display; it lines up twice a day and hides a message. Grade 5 titanium, 39 mm, the engraved caseback doubles as the winding grip. 30 pieces per colour, CHF 20,000 before tax.", "w": "Ressence keeps proving the dial can be a mechanism, not a surface.", "imgs": ["https://watchesbysjx.com/wp-content/uploads/2026/09/Ressence-Type-9-Jules-Wittock-green.jpg", "https://watchesbysjx.com/wp-content/uploads/2026/09/Ressence-Type-9-Jules-Wittock-black-dial-detail.jpg", "https://watchesbysjx.com/wp-content/uploads/2026/09/Ressence-Type-9-Jules-Wittock-green-case-profile.jpg", "https://watchesbysjx.com/wp-content/uploads/2026/09/Ressence-Type-9-Jules-Wittock-pair.jpg", "https://watchesbysjx.com/wp-content/uploads/2026/09/Ressence-Type-9-Jules-Wittock-black.jpg"]},
+ {"id": "chermayeff", "cat": "Industrial Design", "t": "Sam Chermayeff — Knoll Chermayeff Storage", "u": "https://www.wallpaper.com/design-interiors/knoll-sam-chermayeff-storage-collection-launch", "src": "Wallpaper*", "p": "Bookcase, bar cabinet, console, side and coffee tables built on Florence Knoll's 1961 2544 credenza. Ebonised ash or walnut, red, green or blue lacquer, seven marbles, chrome profiles, push-to-open drawers, finished on all sides. UK and EU from November.", "w": "“An evolution, not a revolution” — the right way to touch a Florence Knoll.", "imgs": ["https://cdn.mos.cms.futurecdn.net/naiqQphkumH6u5mxW2qMX6.png", "https://cdn.mos.cms.futurecdn.net/qpNNxHKE5HfShKy6ASmh4o.png", "https://cdn.mos.cms.futurecdn.net/HgfFJPkxgKBHfF5jsKLo7o.png", "https://cdn.mos.cms.futurecdn.net/YBNPkob8dhN5EkRGamxRD3.png", "https://cdn.mos.cms.futurecdn.net/N8v6MfXcdoSzWaMiYBgk7o.png"]},
+ {"id": "masur", "cat": "Industrial Design", "t": "Isokon × Béton Brut — Breuer in masur birch", "u": "https://www.dezeen.com/2026/09/09/beton-brut-isokon-marcel-breuer-furniture-masur-birch/", "src": "Dezeen", "p": "Four 1936 Marcel Breuer designs — Cut-Out armchair and chair, nesting tables, dining table — veneered in figured masur birch for the 90th anniversary. Made to order, 10–12 weeks, from £1,300.", "w": "The strictest plywood furniture meets the wildest birch grain. It works.", "imgs": ["https://static.dezeen.com/uploads/2026/09/beton-brut-marcel-breuer-isokon_dezeen_2364_col_2-852x479.jpg", "https://static.dezeen.com/uploads/2026/09/beton-brut-marcel-breuer-isokon_dezeen_2364_col_7-852x1060.jpg", "https://static.dezeen.com/uploads/2026/09/beton-brut-marcel-breuer-isokon_dezeen_2364_col_8-852x1065.jpg", "https://static.dezeen.com/uploads/2026/09/beton-brut-marcel-breuer-isokon_dezeen_2364_col_15-852x1136.jpg", "https://static.dezeen.com/uploads/2026/09/beton-brut-marcel-breuer-isokon_dezeen_2364_col_10-852x1065.jpg"]},
+ {"id": "rimowafc", "cat": "Industrial Design", "t": "Rimowa × Faber-Castell — the artist case", "u": "https://www.wallpaper.com/design-interiors/rimowa-faber-castell-artist-case", "src": "Wallpaper*", "p": "Grooved aluminium shell with a two-tier interior: 120 Polychromos pencils, 2B graphite pencils grooved like the case, platinum-plated sharpener and eraser. £2,180.", "w": "", "imgs": ["https://cdn.mos.cms.futurecdn.net/bYGEwGvQeFs2eZsfr52CeV.jpg", "https://cdn.mos.cms.futurecdn.net/c7RG3pQJxiNNruvryaPkaV.jpg", "https://cdn.mos.cms.futurecdn.net/V5p5PpS2tsWUHywQKCutTV.jpg", "https://cdn.mos.cms.futurecdn.net/T69Thgt3AmTkCjgg6xsYrU.jpg", "https://cdn.mos.cms.futurecdn.net/R8AHk2BG2BujC8aQXJFh9V.jpg"]},
+ {"id": "pearson", "cat": "Industrial Design", "t": "Tom Pearson — 10,000 Rivets", "u": "https://www.dezeen.com/2026/09/18/tom-pearson-riveting-aluminium-furniture/", "src": "Dezeen", "p": "Anodised aluminium furniture held together with industrial rivets and spacers, so the panels seem to float. Shown at the APOC Store gallery during London Design Festival.", "w": "Fasteners as the whole design language. Nothing hidden.", "imgs": ["https://static.dezeen.com/uploads/2026/09/tom-pearson-studio-10000-rivets_dezeen_2364_col_hero-852x479.jpg", "https://static.dezeen.com/uploads/2026/09/tom-pearson-studio-10000-rivets_dezeen_2364_col_12-852x1278.jpg", "https://static.dezeen.com/uploads/2026/09/tom-pearson-studio-10000-rivets_dezeen_2364_col_1-852x568.jpg", "https://static.dezeen.com/uploads/2026/09/tom-pearson-studio-10000-rivets_dezeen_2364_col_14-852x1278.jpg", "https://static.dezeen.com/uploads/2026/09/tom-pearson-studio-10000-rivets_dezeen_2364_col_21-852x1278.jpg"]},
+ {"id": "rawedges", "cat": "Industrial Design", "t": "Raw-Edges — LightMass^", "u": "https://www.wallpaper.com/design-interiors/light-mass-by-raw-edges-collection", "src": "Wallpaper*", "p": "Raw-Edges launch their own lighting label. The lamps are built from a continuous digital weave, lightweight structures borrowed from greenhouses and bridges.", "w": "", "imgs": ["https://cdn.mos.cms.futurecdn.net/zboxeVHph3cypsy6RTx4CE.jpg", "https://cdn.mos.cms.futurecdn.net/pq5mRAJjr7LuHwbMCYkY9E.jpg", "https://cdn.mos.cms.futurecdn.net/8P3qV3uh9uXsNomrMCuzUE.jpg", "https://cdn.mos.cms.futurecdn.net/eVegkgEfCeaQHNmwV2duUE.jpg", "https://cdn.mos.cms.futurecdn.net/pMhMzgr4gXGSFQZyegDMEE.jpg"]},
+ {"id": "gellamp", "cat": "Industrial Design", "t": "Public Parts — Gel Lamp", "u": "https://www.dezeen.com/2026/09/22/billy-easter-public-parts-silicone-gel-lamp/", "src": "Dezeen", "p": "An 11.5 cm hollow silicone cube over a dimmable LED; thin silicone gel slides slot in to change the colour, 13 to choose from. £375 with two slides, numbered batches.", "w": "One material, one slot, done.", "imgs": ["https://static.dezeen.com/uploads/2026/09/gel-lamp-public-parts-billy-easter-lighting-design-silicone_dezeen_2364_col_7.jpg", "https://static.dezeen.com/uploads/2026/09/gel-lamp-public-parts-billy-easter-lighting-design-silicone_dezeen_2364_col_8-852x1065.jpg", "https://static.dezeen.com/uploads/2026/09/gel-lamp-public-parts-billy-easter-lighting-design-silicone_dezeen_2364_col_6-852x1065.jpg", "https://static.dezeen.com/uploads/2026/09/gel-lamp-public-parts-billy-easter-lighting-design-silicone_dezeen_2364_col_1-852x1065.jpg", "https://static.dezeen.com/uploads/2026/09/gel-lamp-public-parts-billy-easter-lighting-design-silicone_dezeen_2364_col_10-852x1065.jpg"]},
+ {"id": "unit4", "cat": "Industrial Design", "t": "AIAIAI — the upgraded UNIT-4", "u": "https://aiaiai.audio/stories/products/the-new-unit-4", "src": "AIAIAI", "p": "The portable studio monitors get USB-C charging instead of power bricks, a battery-powered wireless transmitter, a travel case and a white version. 2.5 kg each, modular, recycled plastics, 20+ hours of battery. Existing owners get 50% off the new parts.", "w": "Upgrading instead of replacing: exactly how a modular product should age.", "imgs": ["https://images.prismic.io/aiaiai/iyj5HdFkrRy3qg27_AIAIAI_U4_Banner.png?rect=0%2C0%2C3450%2C2395&w=1920&h=1333", "https://images.prismic.io/aiaiai/p_B4RLJGI3GT7OCO_AIAIAI_U4_Lifestyle_Banner.png?rect=0%2C0%2C1728%2C1007&w=1920&h=1119", "https://images.prismic.io/aiaiai/37HjUelLtvyBlOZ8_AIAIAI_U4_Lifestyle_Banner-2.png?rect=0%2C0%2C1728%2C1007&w=1920&h=1119", "https://images.prismic.io/aiaiai/LO2FhO1FlZ3HcgCv_Unit-4WebStory.png?auto=format,compress"]},
+ {"id": "eyeq", "cat": "Industrial Design", "t": "Sage — Eye Q toaster", "u": "https://www.dezeen.com/2026/09/16/eye-q-toaster-colour-sensor-sage-appliances/", "src": "Dezeen", "p": "Optical sensors check the bread's colour up to 10 times a second and pop it at the shade you chose, whatever the bread. Two- and four-slice versions.", "w": "Finally a toaster that measures the right thing.", "imgs": ["https://static.dezeen.com/uploads/2026/09/eye-q-toaster-colour-sensor-sage-appliances_dezeen_2364_hero_2.jpg", "https://static.dezeen.com/uploads/2026/09/eye-q-toaster-colour-sensor-sage-appliances_dezeen_2364_col_5-852x640.jpg", "https://static.dezeen.com/uploads/2026/09/eye-q-toaster-colour-sensor-sage-appliances-3443_dezeen_2364_col_0-852x479.jpg", "https://static.dezeen.com/uploads/2026/09/eye-q-toaster-colour-sensor-sage-appliances_dezeen_2364_col_0-852x636.jpg"]},
+ {"id": "barbican", "cat": "Industrial Design", "t": "Made x Barbican", "u": "https://www.dezeen.com/2026/09/03/london-design-festival-2026-highlights/", "src": "Dezeen", "p": "A 23-piece collection of furniture, lighting and textiles drawn from the Barbican's original interiors and architectural details.", "w": "", "imgs": ["http://www.archipanic.com/wp-content/uploads/2026/09/MADE-x-Barbican-Courtesy-of-London-Design-Festival-2026.jpeg", "https://static.dezeen.com/uploads/2026/08/c-london-design-festival-2026-highlights_dezeen_2364_col_0-852x852.jpg"]},
+ {"id": "aram", "cat": "Industrial Design", "t": "Design Everything at Aram", "u": "https://www.dezeen.com/2026/09/03/london-design-festival-2026-highlights/", "src": "Dezeen", "p": "A non-profit collective turns the Aram gallery into a young designer's flat, furnished with objects by 102 emerging makers working within limits of space, time and budget.", "w": "", "imgs": ["http://www.archipanic.com/wp-content/uploads/2026/09/Photo-via-IG-follow-@designeverything_org-and-@aramgalleryldn.jpg", "https://static.dezeen.com/uploads/2026/08/b-london-design-festival-2026-highlights_dezeen_2364_col_0-852x852.jpg"]},
+ {"id": "camerajet", "cat": "Industrial Design", "t": "Dyson — CameraJet", "u": "https://www.dezeen.com/2026/09/12/dyson-products-roundup/", "src": "Dezeen", "p": "Dyson's first toothbrush: a camera finds the gaps between teeth and a jet of mouthwash flosses them while you brush.", "w": "", "imgs": ["https://static.dezeen.com/uploads/2026/09/dyson-camerajet-first-toothbrush-floss_dezeen_2364_col_9-852x568.jpg", "https://static.dezeen.com/uploads/2026/09/dyson-camerajet-first-toothbrush-floss_dezeen_2364_sq_9-852x852.jpg"]},
+ {"id": "lehni", "cat": "Swiss Scene", "t": "Rimowa × Lehni — aluminium for aluminium", "u": "https://www.wallpaper.com/design-interiors/furniture/rimowa-lehni-collaboration", "src": "Wallpaper*", "p": "The Zurich metalworkers built a bench and a drawer unit in hand-finished anodised aluminium, sized to hold Rimowa cabin cases, with felt-lined shelves. Black or silver, €3,200 each.", "w": "Lehni folding sheet metal the way they did for Judd. Still the reference.", "imgs": ["https://cdn.mos.cms.futurecdn.net/FVrnLTEgTR3Veu97GHXKJn.png", "https://cdn.mos.cms.futurecdn.net/5apWgZUmjdLSaaE7zobbEn.png", "https://cdn.mos.cms.futurecdn.net/Q8eB3kgPooQdbDSqbyhVHn.png", "https://cdn.mos.cms.futurecdn.net/RP78dyaSFbVptrH9pdNeXn.jpg", "https://cdn.mos.cms.futurecdn.net/a7StGDncvSVmEHx3PHthNn.jpg"]},
+ {"id": "beyeler", "cat": "Swiss Scene", "t": "Peter Zumthor's Fondation Beyeler opens in stages", "u": "https://www.archdaily.com/1185683/fondation-beyeler-expands-with-three-new-buildings-by-peter-zumthor", "src": "ArchDaily", "p": "Three buildings in Riehen: the Y-shaped Wyss Museum, the glass-and-oak Ammann Pavilion and the timber Erlen Torhaus, with Jura limestone in rammed-concrete façades and terrazzo. Preview phase from 26 September; full opening 15 January 2027.", "w": "", "imgs": ["https://images.adsttc.com/media/images/6ab4/eb83/e78f/b301/883c/f4e4/large_jpg/fondation-beyeler-expands-with-three-new-buildings-by-peter-zumthor_1.jpg?1790241695", "https://images.adsttc.com/media/images/6ab4/eb7c/e78f/b301/883c/f4e1/medium_jpg/fondation-beyeler-expands-with-three-new-buildings-by-peter-zumthor_11.jpg?1790241688", "https://images.adsttc.com/media/images/6ab4/eb81/e78f/b301/883c/f4e3/medium_jpg/fondation-beyeler-expands-with-three-new-buildings-by-peter-zumthor_12.jpg?1790241708", "https://images.adsttc.com/media/images/6ab4/eb66/e78f/b301/883c/f4da/medium_jpg/fondation-beyeler-expands-with-three-new-buildings-by-peter-zumthor_3.jpg?1790241680"]},
+ {"id": "broom", "cat": "Collectible", "t": "Lee Broom — The Chant Chambers", "u": "https://www.dezeen.com/2026/09/15/lee-broom-1970s-glamour-chant-chambers-installation/", "src": "Dezeen", "p": "Smoked glass and metal: a single light grown into a modular system of chamber-like installations.", "w": "", "imgs": ["https://i0.wp.com/martynwhite.co/wp-content/uploads/2026/09/lee-broom-the-chant-chambers-installation-ldf-2026-feature.webp", "https://static.dezeen.com/uploads/2026/09/chant-chambers-lee-broom_dezeen_2364_col_hero-852x479.jpg", "https://static.dezeen.com/uploads/2026/09/chant-chambers-lee-broom_dezeen_2364_col_20-852x1278.jpg", "https://i0.wp.com/martynwhite.co/wp-content/uploads/2026/09/Lee-Broom-LDF26-93_Luke-Hayes.jpg", "https://static.dezeen.com/uploads/2026/09/chant-chambers-lee-broom_dezeen_2364_col_13-852x600.jpg", "https://i0.wp.com/martynwhite.co/wp-content/uploads/2026/09/Lee-Broom-LDF26-73_Luke-Hayes.jpg"]},
+ {"id": "wraps", "cat": "Collectible", "t": "Under Wraps at Charles Burnand Gallery", "u": "https://martynwhite.co/charles-burnand-gallery-under-wraps-mayfair/", "src": "Martyn White", "p": "New works hidden under translucent sheeting, revealed by automated mechanisms in a choreographed sequence. Peter Lane, Niamh Barry, Studio Furthermore, Marc Fish. London, until 9 January.", "w": "", "imgs": ["https://i0.wp.com/martynwhite.co/wp-content/uploads/2026/09/charles-burnand-gallery-under-wraps-installation-view-01-mark-cocksedge.jpg", "https://i0.wp.com/martynwhite.co/wp-content/uploads/2026/09/charles-burnand-gallery-under-wraps-installation-view-03-mark-cocksedge.jpg", "https://i0.wp.com/martynwhite.co/wp-content/uploads/2026/09/charles-burnand-gallery-under-wraps-installation-view-06-mark-cocksedge.jpg", "https://i0.wp.com/martynwhite.co/wp-content/uploads/2026/09/charles-burnand-gallery-under-wraps-installation-view-07-mark-cocksedge.jpg", "https://i0.wp.com/martynwhite.co/wp-content/uploads/2026/09/charles-burnand-gallery-under-wraps-installation-view-09-cabinet-door-closed-mark-cocksedge.jpg", "https://cdn.galeriemagazine.com/wp-content/uploads/2026/09/2026.08.31_Under-Wraps-Exhibition_copyright-Charles-Burnand-Gallery-2026_photo-Mark-Cocksedge-260822_CharlesBurnandGallery_022_Retouched-1174x783.jpg"]},
+ {"id": "maxradford", "cat": "Collectible", "t": "Max Radford × Christopher Farr — new furniture on archival rugs", "u": "https://www.wallpaper.com/design-interiors/max-radford-christopher-farr-london-design-festival-2026", "src": "Wallpaper*", "p": "Carsten in der Elst's stone Graywacke OffCut chair, LS Goma, Tessa Silva and Lewis Kemmenoe, each set on archival rugs by Gunta Stölzl, Romeo Gigli or Gary Hume.", "w": "The stone chair is the one I'd take home.", "imgs": ["https://cdn.mos.cms.futurecdn.net/xB5cMgo8LCDJ2vBVJ5Cc7X.jpg", "https://cdn.mos.cms.futurecdn.net/xUv6WAZ5cx3zfPQmfF782X.jpg", "https://cdn.mos.cms.futurecdn.net/AAEMtmJnKj7QVWm8rQ7svW.jpg", "https://cdn.mos.cms.futurecdn.net/6vc5j7A6xCUQFSQu5VPbBX.jpg", "https://cdn.mos.cms.futurecdn.net/ngYK6hDK6888VauCpQnycX.png", "https://static.dezeen.com/uploads/2026/09/carsten-in-der-elst-max-radford-gallery-852x852.jpg"]},
+ {"id": "murano", "cat": "Collectible", "t": "Murano Illumina il Mondo — twelve new chandeliers", "u": "https://www.wallpaper.com/design-interiors/design-events/venice-glass-week-2026-norman-foster-chandelier", "src": "Wallpaper*", "p": "Designers paired with Murano furnaces: Norman Foster with Salviati, Pierre Charpin with Simone Cenedese, Bethan Laura Wood with Gambaro & Tagliapietra, AL_A with Yalos. Procuratie Vecchie, St Mark's Square, until 1 November.", "w": "Charpin's “Tubi or not tubi” alone is worth the train to Venice.", "imgs": ["https://cdn.mos.cms.futurecdn.net/zpnf5mVtfjLA42VbXMS5Be-1280-80.jpg", "https://cdn.mos.cms.futurecdn.net/6uMqVSihW8B4ert8NeJRhe-1280-80.jpg", "https://cdn.mos.cms.futurecdn.net/Z43vvmmmXeuoXWLnkumyce-1280-80.jpg", "https://cdn.mos.cms.futurecdn.net/ViVrWYH6X8yjs6DtXmHoUe-1280-80.jpg", "https://cdn.mos.cms.futurecdn.net/Hfi35QVQ2jGgSMZFGfL5s6-1280-80.jpg"]},
+ {"id": "craftxtech", "cat": "Collectible", "t": "Craft x Tech Tokai — Philippe Malouin's cloisonné boxes", "u": "https://www.archipanic.com/craft-x-tech-tokai-project/", "src": "Archipanic", "p": "Six designers with Tokai-region artisans at the V&A. Malouin worked with Ando Cloisonné on stackable Owari Shippo enamel boxes; Lanzavecchia + Wai with Mino washi screens; Bethan Laura Wood with Suzusan shibori. Room 64b, until 30 September.", "w": "Designers as translators of a technique, not decorators of it.", "imgs": ["https://www.archipanic.com/wp-content/uploads/2026/09/Craft-x-Tech-Tokai-Project-at-the-VA-Photo-by-Ed-Reeve-04.jpeg", "https://www.archipanic.com/wp-content/uploads/2026/09/Craft-x-Tech-Tokai-Project-at-the-VA-Photo-by-Ed-Reeve-05.jpeg", "https://www.archipanic.com/wp-content/uploads/2026/09/Craft-x-Tech-Tokai-Project-at-the-VA-Photo-by-Ed-Reeve-06.jpeg", "https://www.archipanic.com/wp-content/uploads/2026/09/Craft-x-Tech-Tokai-Project-at-the-VA-Photo-by-Ed-Reeve-07.jpeg", "https://www.archipanic.com/wp-content/uploads/2026/09/Craft-x-Tech-Tokai-Project-at-the-VA-Photo-by-Ed-Reeve-08.jpeg"]},
+ {"id": "herbarium", "cat": "Collectible", "t": "Lasvit — Herbarium chandelier", "u": "https://www.dezeen.com/2026/09/25/herbarium-chandelier-lighting-installation-lasvit-napa-valley-video/", "src": "Dezeen", "p": "Dozens of hand-blown glass pieces with dried flowers inside; the plants burn away in the heat and leave their imprint in the glass. Installed in a Napa Valley house.", "w": "", "imgs": ["https://static.dezeen.com/uploads/2026/09/herbarium-chandelier-lighting-installation-lasvit-napa-valley-hero_dezeen_2364_col_2-852x479.jpg", "https://static.dezeen.com/uploads/2026/09/herbarium-chandelier-lighting-installation-lasvit-napa-valley_dezeen_2364_col_16-852x1193.jpg", "https://static.dezeen.com/uploads/2026/09/herbarium-chandelier-lighting-installation-lasvit-napa-valley_dezeen_2364_col_7-852x1102.jpg", "https://static.dezeen.com/uploads/2026/09/herbarium-chandelier-lighting-installation-lasvit-napa-valley_dezeen_2364_col_5-852x568.jpg", "https://static.dezeen.com/uploads/2026/09/herbarium-chandelier-lighting-installation-lasvit-napa-valley_dezeen_2364_col_20-852x1277.jpg"]},
+ {"id": "hunchung", "cat": "Collectible", "t": "Hun Chung Lee: Home at R & Company", "u": "https://r-and-company.com/exhibition/hun-chung-lee-home/", "src": "R & Company", "p": "A whole home in stoneware: dining set, chairs, bed and lights, plus celadon moon jars, from 30 years of hand-sculpting. New York, until 6 November.", "w": "", "imgs": ["https://r-and-company.com/wp-content/uploads/2026/08/IMG_6958_1.jpg", "https://r-and-company.com/wp-content/uploads/2026/09/IMG_6846_1.jpg", "https://r-and-company.com/wp-content/uploads/2026/08/IMG_6726_1.jpg", "https://cdn.galeriemagazine.com/wp-content/uploads/2026/09/CO515_p2-1174x932.jpg"]},
+ {"id": "readingroom", "cat": "Collectible", "t": "Alex Tieghi-Walker — The Reading Room", "u": "https://galeriemagazine.com/discover-highlights-from-london-design-festival-2026/", "src": "Galerie Magazine", "p": "Part library, part salon, part exhibition: a temporary space for queer design history, with objects and lights by London designers.", "w": "", "imgs": ["https://galeriemagazine.com/wp-content/uploads/2026/09/HERO_Brompton-Design-District_The-Reading-Room_Henry-Svendsen_Handle-03_2025-375x530.jpg", "https://galeriemagazine.com/wp-content/uploads/2026/09/Brompton-Design-District_The-Reading-Room_Aleksandar-Stankovic_-PHENOMENA_Wall-Sconce_2025-375x469.jpg", "https://galeriemagazine.com/wp-content/uploads/2026/09/Brompton-Design-District_The-Reading-Room_ZachToppin-Paintings-by-Christa-Holka-7May26-019-375x563.jpg"]},
+ {"id": "studioiron", "cat": "Collectible", "t": "Studio Iron — group show, Brompton Design District", "u": "https://galeriemagazine.com/discover-highlights-from-london-design-festival-2026/", "src": "Galerie Magazine", "p": "A show about experiment versus craftsmanship, with pieces by Kelly Wearstler, Jesse Butterfield and others. London Design Festival.", "w": "", "imgs": ["https://galeriemagazine.com/wp-content/uploads/2026/09/Brompton-Design-District_Studio-Iron_Kelly-Wearstler-774x775.jpg", "https://galeriemagazine.com/wp-content/uploads/2026/09/Brompton-Design-District_Studio-Iron_Jesse-Butterfield-Mirror-375x469.jpg"]},
+ {"id": "slancha", "cat": "Collectible", "t": "Slancha — Hanging Baskets", "u": "https://galeriemagazine.com/discover-highlights-from-london-design-festival-2026/", "src": "Galerie Magazine", "p": "Ten designers turn the garden hanging basket into a collectible piece, each in their own material and process. Awaykin, East London.", "w": "", "imgs": ["https://galeriemagazine.com/wp-content/uploads/2026/09/Hanna-Fastrich-Hanging-Basket-Slancha-1-575x719.jpg", "https://galeriemagazine.com/wp-content/uploads/2026/09/This-Is-Byron-Hanging-Basket-Slancha-1-575x719.jpg"]},
+ {"id": "musecharm", "cat": "Design & AI", "t": "Meta Muse Charm — an AI agent on a lanyard", "u": "https://www.dezeen.com/2026/09/25/meta-debuts-tamagotchi-style-ai-agent/", "src": "Dezeen", "p": "A watch-sized body with a two-inch screen, a camera, a 5G modem and a fingerprint sensor to wake the voice agent. A cartoon avatar (a mango, a labradoodle, toast in sunglasses) fronts an assistant that writes emails and books appointments. Due before Christmas.", "w": "The hardware is the easy part. Giving an agent a face is the real design decision here.", "imgs": ["https://static.dezeen.com/uploads/2026/09/hero-meta-muse-charm_dezeen_2364_col_0-852x479.jpg", "https://static.dezeen.com/uploads/2026/09/meta-muse-charm-b_dezeen_2364_col_1-852x1064.jpg", "https://static.dezeen.com/uploads/2026/09/meta-muse-charm-b_dezeen_2364_col_0-852x1067.jpg", "https://static.dezeen.com/uploads/2026/09/sq-meta-muse-charm_dezeen_2364_col_0.jpg"]},
+ {"id": "sound", "cat": "Design & AI", "t": "L-Acoustics — The Art of Sound", "u": "https://www.dezeen.com/2026/09/03/london-design-festival-2026-highlights/", "src": "Dezeen", "p": "A 12-speaker immersive installation in the Wapping Hydraulic Power Station, with Max Cooper and sound recordist Chris Watson.", "w": "", "imgs": ["http://www.archipanic.com/wp-content/uploads/2026/09/Wapping-Hydraulic-Power-Station-Photo-by-Philipa-Gedge.jpg", "https://static.dezeen.com/uploads/2026/08/london-design-festival-2026-highlights_dezeen_2364_col_2-852x852.jpg"]},
+ {"id": "bugaboo", "cat": "Tools & Process", "t": "Aalto University × Bugaboo — the biomaterial pram", "u": "https://www.dezeen.com/2026/09/08/bugaboo-biomaterial-pram-aalto-university-finland/", "src": "Dezeen", "p": "Bugaboo's frame and wheels, everything else bio-based: an orange-peel composite canopy, sawdust back panel, egg-carton fibre foam and a hemp-lignin blanket. A concept for now; waterproofing is the hard part.", "w": "", "imgs": ["https://static.dezeen.com/uploads/2026/09/bugaboo-pram-biomaterials-aalto-university-hero-852x479.jpg", "https://static.dezeen.com/uploads/2026/09/aalto-university-bugaboo-biomaterial-pram-exclusive_dezeen_2364_col_5-852x1277.jpg", "https://static.dezeen.com/uploads/2026/09/aalto-university-bugaboo-biomaterial-pram-exclusive_dezeen_2364_col_39-852x1277.jpg", "https://static.dezeen.com/uploads/2026/09/aalto-university-bugaboo-biomaterial-pram-exclusive_dezeen_2364_col_50-852x1277.jpg", "https://static.dezeen.com/uploads/2026/09/aalto-university-bugaboo-biomaterial-pram-exclusive_dezeen_2364_col_66-852x568.jpg"]},
+ {"id": "matters", "cat": "Tools & Process", "t": "Material Matters Fair", "u": "https://www.dezeen.com/2026/09/03/london-design-festival-2026-highlights/", "src": "Dezeen", "p": "50+ exhibitors in Shoreditch, from Prima Materia's salvaged oak furniture to Biomason's bacteria-grown tiles and Phyta Biodesign's habitat ceramics.", "w": "", "imgs": ["http://www.archipanic.com/wp-content/uploads/2026/09/Materials-Matter-London-2026.-Detail-of-OP-Ceramic-Modular-System-by-Pani-Jurek-Studio-Photo-Tomo-Yarmush-courtesy-of-Material-Matters.jpeg", "https://galeriemagazine.com/wp-content/uploads/2026/09/TAMART-CLORE-BEAM-Lighting-System-1-850x567.jpg", "https://galeriemagazine.com/wp-content/uploads/2026/09/250916_SF01603-850x567.jpeg", "https://static.dezeen.com/uploads/2026/08/london-design-festival-2026-highlights_dezeen_2364_col_5-852x852.jpg"]},
+ {"id": "onetool", "cat": "Tools & Process", "t": "One Tool, One Stool — Gallery Fumi × RCA", "u": "https://www.dezeen.com/2026/09/03/london-design-festival-2026-highlights/", "src": "Dezeen", "p": "RCA alumni show textiles, ceramics and products, plus an exercise where each stool is made with a single tool.", "w": "A brief I'd love to give students.", "imgs": ["http://www.archipanic.com/wp-content/uploads/2026/09/After-School-show-by-Gallery-Fumi-x-RCA-Photo-courtesy-of-Andreas-Larsson.jpg", "https://galeriemagazine.com/wp-content/uploads/2026/09/AndreasLarsson3-1174x717.jpg", "https://static.dezeen.com/uploads/2026/08/london-design-festival-2026-highlights_dezeen_2364_col_10-852x852.jpg"]},
+ {"id": "zieta", "cat": "Tools & Process", "t": "Zieta — inflated steel, the Whispers Bench", "u": "https://www.archipanic.com/london-design-debuts-2026/", "src": "Archipanic", "p": "Oskar Zięta's FiDU process welds two thin steel sheets together and inflates them with air pressure into volume. The new bench is anodised.", "w": "Still one of the smartest forming processes around: no mould, almost no tooling.", "imgs": ["https://storage.zieta.pl/15501/conversions/ZietaStudio_Whispers_LDN_1-1-large.jpg", "https://www.archipanic.com/wp-content/uploads/2026/09/Whisper-Bench-by-Zieta-Studios-Photo-by-Piet-Albert-Goethals.jpg"]}
+];
+const EDIT=location.hash==="#atelier";
+const KEY="brief-objet-atelier";
+let filter="all",st={votes:{},more:"",less:""};
+if(EDIT){try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x)st={...st,...x}}catch(e){}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function hi(u){
+  try{
+    if(/static\.dezeen\.com|cdn\.galeriemagazine\.com|archipanic\.com|lightzoomlumiere\.fr|wp-content\/uploads/.test(u)) u=u.replace(/-\d{2,4}x\d{2,4}(?=\.(jpe?g|png|webp)(\?|$))/i,"");
+    if(/images\.adsttc\.com/.test(u)) u=u.replace("/medium_jpg/","/large_jpg/");
+    if(/cdn\.mos\.cms\.futurecdn\.net/.test(u)) u=u.replace(/-(\d{3,4})-80\.(jpe?g|png|webp)$/i,"-1920-80.$2");
+  }catch(e){}
+  return u;
+}
+const imgsOf=i=>[...new Set([...(i.imgs||[]),...(i.img?[i.img]:[])])];
+function car(i){
+  const im=imgsOf(i); if(!im.length) return "";
+  const multi=im.length>1;
+  return `<figure class="car" data-id="${i.id}"><div class="slides">${im.map(u=>`<img src="${hi(u)}" data-fb="${u}" alt="${esc(i.t)}" loading="lazy" referrerpolicy="no-referrer" onerror="imgErr(this)">`).join("")}</div>${multi?`<button class="nav prev" aria-label="Previous image">←</button><button class="nav next" aria-label="Next image">→</button><div class="dots">${im.map((_,k)=>`<i class="${k?"":"on"}"></i>`).join("")}</div>`:""}</figure>`;
+}
+function credit(i){return `<div class="credit">Via <a href="${i.u}" target="_blank" rel="noopener">${esc(i.src)}</a></div>`}
+function render(){
+  const cats=[...new Set(items.map(i=>i.cat))].filter(c=>filter==="all"||c===filter);
+  document.getElementById("feed").innerHTML=cats.map(c=>`<section class="cat"><h2>${esc(c)}</h2><div class="grid">${items.filter(i=>i.cat===c).map((i,n)=>{
+    const v=st.votes[i.id];
+    return `<article class="card${EDIT&&v==="k"?" kept":EDIT&&v==="d"?" dropped":""}">
+      ${car(i)}
+      <h3>${esc(i.t)}</h3>
+      ${EDIT?`<div class="acts"><button class="act" data-id="${i.id}" data-v="k" aria-pressed="${v==="k"}">Keep</button><button class="act" data-id="${i.id}" data-v="d" aria-pressed="${v==="d"}">Drop</button></div>`:""}
+      <p>${esc(i.p)}</p>${i.w?`<div class="why">${esc(i.w)}</div>`:""}
+      ${credit(i)}</article>`}).join("")}</div></section>`).join("");
+  const k=Object.values(st.votes).filter(v=>v==="k").length,d=Object.values(st.votes).filter(v=>v==="d").length;
+  document.getElementById("count").textContent=EDIT?`${items.length} stories · ${k} kept · ${d} dropped`:`${items.length} stories`;
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===filter));
+  wire(document);
+}
+function wire(root){root.querySelectorAll(".slides").forEach(el=>{el.onscroll=()=>{const n=Math.round(el.scrollLeft/el.clientWidth);el.parentNode.querySelectorAll(".dots i").forEach((d,k)=>d.classList.toggle("on",k===n))}})}
+function imgErr(img){if(img.dataset.fb&&img.src!==img.dataset.fb){img.src=img.dataset.fb;img.dataset.fb="";return}const fig=img.closest(".car");img.remove();if(!fig)return;const left=fig.querySelectorAll(".slides img").length;if(!left){fig.remove();return}const dots=fig.querySelector(".dots");if(dots)dots.innerHTML=Array.from({length:left},(_,k)=>`<i class="${k?"":"on"}"></i>`).join("");if(left<2)fig.querySelectorAll(".nav,.dots").forEach(e=>e.remove())}
+function openLb(id){
+  const i=items.find(x=>x.id===id); if(!i)return;
+  const lb=document.createElement("div");lb.id="lb";lb.setAttribute("role","dialog");lb.setAttribute("aria-modal","true");
+  lb.innerHTML=`<button class="close">Close</button>${car(i)}<div class="cap"><h3 style="margin:0;font:inherit;font-size:1.1rem">${esc(i.t)}</h3><p style="margin:0;font-size:.95rem;line-height:1.4">${esc(i.p)}</p>${credit(i)}</div>`;
+  document.body.appendChild(lb);document.body.classList.add("lb-open");wire(lb);lb.querySelector(".close").focus();
+}
+function closeLb(){const lb=document.getElementById("lb");if(lb){lb.remove();document.body.classList.remove("lb-open")}}
+addEventListener("keydown",e=>{if(e.key==="Escape")closeLb();const lb=document.getElementById("lb");if(lb&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){const sl=lb.querySelector(".slides");if(sl)sl.scrollBy({left:(e.key==="ArrowRight"?1:-1)*sl.clientWidth})}});
+document.addEventListener("click",e=>{
+  const nv=e.target.closest(".nav");
+  if(nv){const sl=nv.parentNode.querySelector(".slides");sl.scrollBy({left:(nv.classList.contains("next")?1:-1)*sl.clientWidth});return}
+  if(e.target.closest("#lb .close")){closeLb();return}
+  const fig=e.target.closest(".car");
+  if(fig&&!fig.closest("#lb")){openLb(fig.dataset.id);return}
+  const a=e.target.closest(".act");
+  if(a){const {id,v}=a.dataset;st.votes[id]=st.votes[id]===v?undefined:v;save();render();return}
+  const t=e.target.closest(".tab");if(t){filter=t.dataset.f;render()}
+});
+if(EDIT){
+  document.getElementById("atelier").hidden=false;
+  ["more","less"].forEach(id=>{const el=document.getElementById(id);el.value=st[id]||"";el.addEventListener("input",()=>{st[id]=el.value;save()})});
+  document.getElementById("copy").addEventListener("click",()=>{
+    const pick=v=>items.filter(i=>st.votes[i.id]===v).map(i=>"- "+i.t).join("\n")||"- (none)";
+    const n=(document.querySelector("header .meta")||{}).textContent||"";
+    const txt=`Brief Objet recap ${n}\n\nKept:\n${pick("k")}\n\nDropped:\n${pick("d")}\n\nMore of: ${st.more||"-"}\nLess of: ${st.less||"-"}`;
+    const toast=document.getElementById("toast");
+    const done=()=>{toast.hidden=false;setTimeout(()=>toast.hidden=true,3000)};
+    const fallback=()=>{const ta=document.getElementById("recap");ta.hidden=false;ta.value=txt;ta.select();toast.textContent="Copy blocked: select the text above.";done()};
+    if(navigator.clipboard)navigator.clipboard.writeText(txt).then(done,fallback);else fallback();
+  });
+}
+addEventListener("hashchange",()=>location.reload());
+render();
+</script>
+
+</body>
+</html>
